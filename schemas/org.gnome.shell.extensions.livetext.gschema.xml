@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.livetext" path="/org/gnome/shell/extensions/livetext/">
+    <key name="show-notification" type="b">
+      <default>true</default>
+      <summary>Show notification</summary>
+      <description>Show a notification with the extracted text when successful.</description>
+    </key>
+    <key name="shortcut-trigger" type="as">
+      <default>['&lt;Super&gt;&lt;Shift&gt;t']</default>
+      <summary>Trigger shortcut</summary>
+      <description>Keyboard shortcut to trigger live text extraction.</description>
+    </key>
+  </schema>
+</schemalist>

@@ -1,0 +1,13 @@
+{
+  "name": "Live Text Extractor",
+  "description": "Select an area of the screen to instantly extract and copy text to the clipboard.",
+  "uuid": "livetext@cwittenberg",
+  "shell-version": [
+    "45", "46", "47", "48", "49", "50"
+  ],
+  "url": "https://github.com/cwittenberg/livetext",
+  "settings-schema": "org.gnome.shell.extensions.livetext",
+  "donations": {
+    "kofi": "cwittenberg"
+  }
+}
