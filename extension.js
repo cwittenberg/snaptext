@@ -228,8 +228,7 @@ export default class SnapTextExtension extends Extension {
     }
 
     _extractText() {
-        // NUKE HANGING PROCESSES: Instead of silently ignoring new clicks when a background task locks up, 
-        // we forcefully terminate any stuck processes to guarantee the UI is always responsive.
+        // Ensure any hung processes from previous extractions are terminated
         if (this._screenshotProcess) {
             this._screenshotProcess.force_exit();
             this._screenshotProcess = null;
@@ -245,7 +244,16 @@ export default class SnapTextExtension extends Extension {
             return;
         }
 
-        let tempImagePath = GLib.build_filenamev([GLib.get_tmp_dir(), 'snap_text_capture.png']);
+        let tempImagePath;
+        try {
+            // Generate a secure, unique temporary file
+            let [file, stream] = Gio.File.new_tmp('snaptext-XXXXXX.png');
+            tempImagePath = file.get_path();
+            stream.close(null);
+        } catch (e) {
+            console.error('Snap Text Extension: Failed to create secure temporary file', e);
+            return;
+        }
 
         this._screenshotProcess = Gio.Subprocess.new(
             ['gnome-screenshot', '-a', '-f', tempImagePath],
@@ -256,7 +264,6 @@ export default class SnapTextExtension extends Extension {
             this._screenshotProcess = null;
             proc.wait_finish(res);
 
-            // Directly evaluate success cleanly instead of catching errors using wait_check_finish
             if (proc.get_successful()) {
                 this._runTesseract(tempImagePath);
             } else {
@@ -272,7 +279,6 @@ export default class SnapTextExtension extends Extension {
             return;
         }
         
-        // EGO Guideline: Never use synchronous/blocking I/O. Asynchronously query installed languages.
         let listProc = Gio.Subprocess.new(
             ['tesseract', '--list-langs'],
             Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_SILENCE
@@ -287,14 +293,13 @@ export default class SnapTextExtension extends Extension {
                 if (proc.get_successful() && stdout) {
                     let lines = stdout.split('\n').map(l => l.trim());
                     
-                    // STRICT PARSING: explicitly find the data header to ignore console warnings/errors
                     let startIndex = lines.findIndex(l => l.startsWith('List of'));
                     let validLangs = [];
                     
                     if (startIndex !== -1) {
                         for (let i = startIndex + 1; i < lines.length; i++) {
                             let lang = lines[i];
-                            // Only accept strings with alphanumeric/underscore characters (drops empty lines & error sentences)
+                            // Exclude specific console messages or invalid characters
                             if (lang && lang !== 'osd' && /^[a-zA-Z0-9_]+$/.test(lang)) {
                                 validLangs.push(lang);
                             }
@@ -306,7 +311,7 @@ export default class SnapTextExtension extends Extension {
                     }
                 }
             } catch (e) {
-                console.error('Snap Text Extension: Failed to query installed languages, falling back to eng', e);
+                console.error('Snap Text Extension: Failed to parse installed languages', e);
             }
 
             this._tesseractProcess = Gio.Subprocess.new(
@@ -345,7 +350,7 @@ export default class SnapTextExtension extends Extension {
                         }
                     }
                 } catch (e) {
-                    console.error('Snap Text Extension: Tesseract process read failure', e);
+                    console.error('Snap Text Extension: Text extraction process failed', e);
                 } finally {
                     GLib.unlink(imagePath);
                 }
