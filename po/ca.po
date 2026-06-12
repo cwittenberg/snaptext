@@ -1,0 +1,159 @@
+# Catalan translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "Falta la dependència del sistema: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "Descartar"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "Encara no hi ha història"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "Configuració"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "Text extret"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "Captura de text"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "No s'ha trobat cap text a la selecció."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "Text extret"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "Configuració d'ajustament de text"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"Extraieu i copieu text a l'instant al porta-retalls des de qualsevol lloc de "
+"la pantalla."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "Comportament i dreceres"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "Mostra la notificació de text extret"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "Mostra un bàner del sistema que conté el context de text copiat."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "Activa l'historial d'extraccions"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr ""
+"Manteniu un historial de fins a 15 extraccions recents al menú contextual."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "Activador de drecera de teclat"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"Feu clic per definir la drecera. Premeu Esc per cancel·lar, retrocés per "
+"desactivar-lo."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "Inhabilitat"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "Premeu les tecles..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "Detalls del desenvolupador"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "Autor"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "Versió"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "Compra'm un cafè ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "Informa d'un error 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "Demana una funció 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "Text copiat de la història"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "Aquesta extensió requereix eines natives del sistema per realitzar "
+#~ "l'extracció de text OCR. Perquè l'extensió funcioni, obriu el terminal i "
+#~ "executeu l'ordre següent per instal·lar les dependències base.\n"
+#~ "\n"
+#~ "Consell: Tesseract detectarà i utilitzarà automàticament QUALSEVOL paquet "
+#~ "d'idioma que hàgiu instal·lat al vostre sistema! Simplement instal·leu "
+#~ "idiomes addicionals (per exemple, tesseract-ocr-deu, tesseract-ocr-chi-"
+#~ "sim) mitjançant el vostre gestor de paquets per activar-los."

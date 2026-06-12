@@ -1,0 +1,162 @@
+# Lithuanian translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"(n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "Trūksta sistemos priklausomybės: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "Atsisakyti"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "Istorijos dar nėra"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "Nustatymai"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "Tekstas ištrauktas"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "Snap Text"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "Pasirinkime nerasta teksto."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "Tekstas ištrauktas"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "Snap Text Configuration"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"Iš bet kurios ekrano vietos akimirksniu ištraukite ir nukopijuokite tekstą į "
+"mainų sritį."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "Elgesys ir spartieji klavišai"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "Rodyti ištraukto teksto pranešimą"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr ""
+"Rodo sistemos reklamjuostę, kurioje yra jūsų nukopijuoto teksto kontekstas."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "Įgalinti ištraukimo istoriją"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "Kontekstiniame meniu saugokite iki 15 naujausių ištraukų istoriją."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "Spartusis klaviatūros paleidiklis"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"Spustelėkite, kad nustatytumėte nuorodą. Paspauskite Esc, kad atšauktumėte, "
+"o Backspace, kad išjungtumėte."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "Išjungta"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "Paspauskite klavišus..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "Išsami kūrėjo informacija"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "Autorius"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "Versija"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "Nupirk man kavos ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "Pranešti apie klaidą 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "Prašyti funkcijos 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "Tekstas nukopijuotas iš istorijos"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "Šiam plėtiniui reikalingi savieji sistemos įrankiai, kad būtų galima "
+#~ "išgauti OCR tekstą. Kad plėtinys veiktų, atidarykite terminalą ir "
+#~ "paleiskite toliau pateiktą komandą, kad įdiegtumėte bazines "
+#~ "priklausomybes.\n"
+#~ "\n"
+#~ "Patarimas: „Tesseract“ automatiškai aptiks ir naudos JOKIUS kalbų "
+#~ "paketus, kuriuos įdiegėte savo sistemoje! Tiesiog įdiekite papildomas "
+#~ "kalbas (pvz., tesseract-ocr-deu, tesseract-ocr-chi-sim) naudodami paketų "
+#~ "tvarkyklę, kad jas įgalintumėte."

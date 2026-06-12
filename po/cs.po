@@ -1,0 +1,158 @@
+# Czech translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "Chybějící závislost systému: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "Propustit"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "Zatím žádná historie"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "Nastavení"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "Text extrahován"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "Přichytit text"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "Ve výběru nebyl nalezen žádný text."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "Text extrahován"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "Konfigurace Snap Text"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"Okamžitě extrahujte a zkopírujte text do schránky odkudkoli na obrazovce."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "Chování a zkratky"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "Zobrazit upozornění na extrahovaný text"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "Zobrazí systémový banner obsahující zkopírovaný textový kontext."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "Povolit historii extrakce"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "Uchovávejte historii až 15 nedávných extrakcí v kontextové nabídce."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "Spouštěč klávesových zkratek"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"Kliknutím nastavíte zkratku. Stiskněte Esc pro zrušení, Backspace pro "
+"deaktivaci."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "Zakázáno"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "Stiskněte klávesy..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "Podrobnosti o vývojáři"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "Autor"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "Verze"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "Kupte mi kávu☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "Nahlásit chybu 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "Požádejte o funkci 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "Text zkopírován z historie"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "Toto rozšíření vyžaduje nativní systémové nástroje k provádění extrakce "
+#~ "textu OCR. Aby rozšíření fungovalo, otevřete svůj terminál a spusťte níže "
+#~ "uvedený příkaz k instalaci základních závislostí.\n"
+#~ "\n"
+#~ "Tip: Tesseract automaticky rozpozná a použije JAKÉKOLI jazykové balíčky, "
+#~ "které jste nainstalovali do svého systému! Jednoduše nainstalujte další "
+#~ "jazyky (např. tesseract-ocr-deu, tesseract-ocr-chi-sim) prostřednictvím "
+#~ "správce balíčků, abyste je povolili."

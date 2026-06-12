@@ -1,0 +1,152 @@
+# Telugu translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: te\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "సిస్టమ్ డిపెండెన్సీ లేదు: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "తొలగించు"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "ఇంకా చరిత్ర లేదు"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "సెట్టింగ్‌లు"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "టెక్స్ట్ సంగ్రహించబడింది"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "స్నాప్ టెక్స్ట్"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "ఎంపికలో వచనం ఏదీ కనుగొనబడలేదు."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "టెక్స్ట్ సంగ్రహించబడింది"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "స్నాప్ టెక్స్ట్ కాన్ఫిగరేషన్"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr "స్క్రీన్‌పై ఎక్కడి నుండైనా మీ క్లిప్‌బోర్డ్‌కు వచనాన్ని తక్షణమే సంగ్రహించండి మరియు కాపీ చేయండి."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "ప్రవర్తన & సత్వరమార్గాలు"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "సంగ్రహించిన వచన నోటిఫికేషన్‌ను చూపు"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "మీరు కాపీ చేసిన వచన సందర్భాన్ని కలిగి ఉన్న సిస్టమ్ బ్యానర్‌ను ప్రదర్శిస్తుంది."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "సంగ్రహణ చరిత్రను ప్రారంభించండి"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "సందర్భ మెనులో గరిష్టంగా 15 ఇటీవలి వెలికితీతల చరిత్రను ఉంచండి."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "కీబోర్డ్ సత్వరమార్గ ట్రిగ్గర్"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr "సత్వరమార్గాన్ని సెట్ చేయడానికి క్లిక్ చేయండి. రద్దు చేయడానికి Esc, నిలిపివేయడానికి Backspace నొక్కండి."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "వికలాంగుడు"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "కీలను నొక్కండి..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "డెవలపర్ వివరాలు"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "రచయిత"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "వెర్షన్"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "నాకు కాఫీ కొనండి ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "బగ్ 🐛ని నివేదించండి"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "ఒక లక్షణాన్ని అభ్యర్థించండి 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "వచనం చరిత్ర నుండి కాపీ చేయబడింది"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "OCR వచన సంగ్రహణను నిర్వహించడానికి ఈ పొడిగింపుకు స్థానిక సిస్టమ్ సాధనాలు అవసరం. పొడిగింపు పని "
+#~ "చేయడానికి, మీ టెర్మినల్‌ని తెరిచి, బేస్ డిపెండెన్సీలను ఇన్‌స్టాల్ చేయడానికి దిగువ ఆదేశాన్ని అమలు చేయండి.\n"
+#~ "\n"
+#~ "చిట్కా: Tesseract మీరు మీ సిస్టమ్‌లో ఇన్‌స్టాల్ చేసిన ఏవైనా భాషా ప్యాక్‌లను స్వయంచాలకంగా గుర్తించి "
+#~ "ఉపయోగిస్తుంది! వాటిని ఎనేబుల్ చేయడానికి మీ ప్యాకేజీ మేనేజర్ ద్వారా అదనపు భాషలను (ఉదా., tesseract-"
+#~ "ocr-deu, tesseract-ocr-chi-sim) ఇన్‌స్టాల్ చేయండి."

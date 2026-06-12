@@ -1,0 +1,156 @@
+# Korean translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "누락된 시스템 종속성: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "해고하다"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "아직 기록이 없습니다."
+
+#: extension.js:239
+msgid "Settings"
+msgstr "설정"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "추출된 텍스트"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "텍스트 스냅"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "선택 항목에 텍스트가 없습니다."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "추출된 텍스트"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "스냅 텍스트 구성"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr "화면 어디에서나 텍스트를 즉시 추출하고 클립보드에 복사할 수 있습니다."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "동작 및 단축키"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "추출된 문자 알림 표시"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "복사한 텍스트 컨텍스트가 포함된 시스템 배너를 표시합니다."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "추출 기록 활성화"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "상황에 맞는 메뉴에서 최대 15개의 최근 추출 기록을 유지하세요."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "키보드 단축키 트리거"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"바로가기를 설정하려면 클릭하세요. 취소하려면 Esc를 누르고, 비활성화하려면 백"
+"스페이스를 누르세요."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "장애가 있는"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "키를 누르세요..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "개발자 세부정보"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "작가"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "버전"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "커피 사주세요 찻잔"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "버그 신고 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "기능 요청 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "기록에서 복사된 텍스트"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "이 확장 프로그램을 사용하려면 OCR 텍스트 추출을 수행하기 위한 기본 시스템 "
+#~ "도구가 필요합니다. 확장 기능을 작동시키려면 터미널을 열고 아래 명령을 실행"
+#~ "하여 기본 종속성을 설치하세요.\n"
+#~ "\n"
+#~ "팁: Tesseract는 시스템에 설치된 모든 언어 팩을 자동으로 감지하고 사용합니"
+#~ "다! 이를 활성화하려면 패키지 관리자를 통해 추가 언어(예: tesseract-ocr-"
+#~ "deu, tesseract-ocr-chi-sim)를 설치하기만 하면 됩니다."

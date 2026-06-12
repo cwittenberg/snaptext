@@ -1,0 +1,157 @@
+# Tamil translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "கணினி சார்பு இல்லை: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "நிராகரி"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "இதுவரை வரலாறு இல்லை"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "அமைப்புகள்"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "உரை பிரித்தெடுக்கப்பட்டது"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "ஸ்னாப் உரை"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "தேர்வில் உரை இல்லை."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "உரை பிரித்தெடுக்கப்பட்டது"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "Snap Text Configuration"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"திரையில் எங்கிருந்தும் உங்கள் கிளிப்போர்டுக்கு உரையை உடனடியாக பிரித்தெடுத்து "
+"நகலெடுக்கவும்."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "நடத்தை & குறுக்குவழிகள்"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "பிரித்தெடுக்கப்பட்ட உரை அறிவிப்பைக் காட்டு"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "நீங்கள் நகலெடுத்த உரை சூழலைக் கொண்ட கணினி பேனரைக் காட்டுகிறது."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "பிரித்தெடுத்தல் வரலாற்றை இயக்கு"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "சூழல் மெனுவில் 15 சமீபத்திய பிரித்தெடுத்தல்களின் வரலாற்றை வைத்திருங்கள்."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "விசைப்பலகை குறுக்குவழி தூண்டுதல்"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"குறுக்குவழியை அமைக்க கிளிக் செய்யவும். ரத்துசெய்ய Escஐயும், முடக்குவதற்கு "
+"Backspaceஐயும் அழுத்தவும்."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "முடக்கப்பட்டது"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "விசைகளை அழுத்தவும்..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "டெவலப்பர் விவரங்கள்"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "ஆசிரியர்"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "பதிப்பு"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "எனக்கு ஒரு காபி வாங்கு ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "ஒரு பிழையைப் புகாரளிக்கவும் 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "ஒரு அம்சத்தைக் கோரவும் 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "வரலாற்றிலிருந்து உரை நகலெடுக்கப்பட்டது"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "இந்த நீட்டிப்புக்கு OCR உரைப் பிரித்தலைச் செய்ய சொந்த கணினி கருவிகள் தேவை. நீட்டிப்பு "
+#~ "வேலை செய்ய, உங்கள் டெர்மினலைத் திறந்து, அடிப்படை சார்புகளை நிறுவ கீழே உள்ள கட்டளையை "
+#~ "இயக்கவும்.\n"
+#~ "\n"
+#~ "உதவிக்குறிப்பு: Tesseract தானாகவே உங்கள் கணினியில் நிறுவப்பட்டுள்ள எந்த மொழிப் "
+#~ "பொதிகளையும் கண்டறிந்து பயன்படுத்தும்! அவற்றை இயக்க உங்கள் தொகுப்பு மேலாளர் வழியாக "
+#~ "கூடுதல் மொழிகளை (எ.கா., tesseract-ocr-deu, tesseract-ocr-chi-sim) நிறுவவும்."

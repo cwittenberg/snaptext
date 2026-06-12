@@ -1,0 +1,154 @@
+# Arabic translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "تبعية النظام المفقودة: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "رفض"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "لا يوجد تاريخ بعد"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "إعدادات"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "النص المستخرج"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "التقط النص"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "لم يتم العثور على نص في التحديد."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "النص المستخرج"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "المفاجئة تكوين النص"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"قم باستخراج النص ونسخه على الفور إلى الحافظة الخاصة بك من أي مكان على الشاشة."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "السلوك والاختصارات"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "إظهار إشعار النص المستخرج"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "يعرض شعار النظام الذي يحتوي على سياق النص المنسوخ."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "تمكين تاريخ الاستخراج"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "احتفظ بسجل يصل إلى 15 عملية استخراج حديثة في قائمة السياق."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "مشغل اختصارات لوحة المفاتيح"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr "انقر لتعيين الاختصار. اضغط على Esc للإلغاء، وBackspace للتعطيل."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "عاجز"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "اضغط على المفاتيح..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "تفاصيل المطور"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "مؤلف"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "إصدار"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "اشتري لي قهوة ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "الإبلاغ عن خطأ 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "طلب ميزة 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "نص منسوخ من التاريخ"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "يتطلب هذا الامتداد أدوات النظام الأصلية لإجراء استخراج نص التعرف الضوئي "
+#~ "على الحروف. لتشغيل الامتداد، افتح جهازك الطرفي وقم بتشغيل الأمر أدناه "
+#~ "لتثبيت التبعيات الأساسية.\n"
+#~ "\n"
+#~ "نصيحة: سوف يكتشف Tesseract تلقائيًا أي حزم لغات قمت بتثبيتها على نظامك "
+#~ "ويستخدمها! ما عليك سوى تثبيت لغات إضافية (على سبيل المثال، tesseract-ocr-"
+#~ "deu، tesseract-ocr-chi-sim) عبر مدير الحزم لديك لتمكينها."

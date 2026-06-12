@@ -1,0 +1,159 @@
+# Norwegian translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: no\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "Manglende systemavhengighet: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "Avskjedige"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "Ingen historikk ennå"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "Tekst trukket ut"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "Snap tekst"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "Ingen tekst funnet i utvalget."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "Tekst trukket ut"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "Konfigurasjon av snaptekst"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"Trekk ut og kopier tekst umiddelbart til utklippstavlen fra hvor som helst "
+"på skjermen."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "Atferd og snarveier"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "Vis uttrukket tekstvarsling"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "Viser et systembanner som inneholder den kopierte tekstkonteksten."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "Aktiver utvinningshistorikk"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "Hold en historie med opptil 15 nylige utdrag i kontekstmenyen."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "Tastatursnarveiutløser"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"Klikk for å angi snarvei. Trykk Esc for å avbryte, Backspace for å "
+"deaktivere."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "Funksjonshemmet"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "Trykk på tastene..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "Utviklerdetaljer"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "Forfatter"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "Versjon"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "Kjøp meg en kaffe ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "Rapporter en feil 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "Be om en funksjon 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "Tekst kopiert fra historikk"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "Denne utvidelsen krever innebygde systemverktøy for å utføre OCR-"
+#~ "tekstekstraksjon. For å få utvidelsen til å fungere, åpne terminalen og "
+#~ "kjør kommandoen nedenfor for å installere basisavhengighetene.\n"
+#~ "\n"
+#~ "Tips: Tesseract vil automatisk oppdage og bruke ALLE språkpakker du har "
+#~ "installert på systemet ditt! Bare installer flere språk (f.eks. tesseract-"
+#~ "ocr-deu, tesseract-ocr-chi-sim) via pakkebehandlingen din for å aktivere "
+#~ "dem."

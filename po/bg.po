@@ -1,0 +1,160 @@
+# Bulgarian translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "Липсваща системна зависимост: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "Отхвърляне"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "Все още няма история"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "Настройки"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "Текстът е извлечен"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "Snap Text"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "Няма намерен текст в селекцията."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "Текстът е извлечен"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "Конфигурация на Snap Text"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"Незабавно извличайте и копирайте текст във вашия клипборд от всяко място на "
+"екрана."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "Поведение и преки пътища"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "Показване на извлечено текстово известие"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "Показва системен банер, съдържащ вашия копиран текстов контекст."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "Активиране на хронологията на извличане"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "Съхранявайте история на до 15 скорошни извличания в контекстното меню."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "Задействане на клавишна комбинация"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"Кликнете, за да зададете пряк път. Натиснете Esc за отмяна, Backspace за "
+"деактивиране."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "Забранено"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "Натиснете клавишите..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "Подробности за разработчика"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "Автор"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "Версия"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "Купи ми кафе ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "Докладвайте грешка 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "Поискайте функция 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "Текстът е копиран от История"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "Това разширение изисква собствени системни инструменти за извършване на "
+#~ "OCR извличане на текст. За да накарате разширението да работи, отворете "
+#~ "вашия терминал и изпълнете командата по-долу, за да инсталирате базовите "
+#~ "зависимости.\n"
+#~ "\n"
+#~ "Съвет: Tesseract автоматично ще открие и използва ВСИЧКИ езикови пакети, "
+#~ "които сте инсталирали на вашата система! Просто инсталирайте допълнителни "
+#~ "езици (напр. tesseract-ocr-deu, tesseract-ocr-chi-sim) чрез вашия "
+#~ "мениджър на пакети, за да ги активирате."

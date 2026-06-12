@@ -7,6 +7,7 @@
   ],
   "url": "https://github.com/cwittenberg/snaptext",
   "settings-schema": "org.gnome.shell.extensions.snaptext",
+  "gettext-domain": "snaptext",
   "donations": {
     "kofi": "cwittenberg"
   }

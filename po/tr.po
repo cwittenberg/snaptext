@@ -1,0 +1,159 @@
+# Turkish translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "Eksik Sistem Bağımlılığı: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "Azletmek"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "Henüz geçmiş yok"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "Metin Çıkarıldı"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "Ek Metin"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "Seçimde metin bulunamadı."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "Metin Çıkarıldı"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "Ek Metin Yapılandırması"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "Davranış ve Kısayollar"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "Çıkarılan Metin Bildirimini Göster"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "Kopyalanan metin içeriğinizi içeren bir sistem başlığını görüntüler."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "Çıkarma Geçmişini Etkinleştir"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "Bağlam menüsünde en son 15 çıkarmanın geçmişini tutun."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "Klavye Kısayolu Tetikleyicisi"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"Kısayolu ayarlamak için tıklayın. İptal etmek için Esc tuşuna, devre dışı "
+"bırakmak için Geri tuşuna basın."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "Engelli"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "Tuşlara basın..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "Geliştirici Ayrıntıları"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "Yazar"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "Sürüm"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "Bana bir kahve al ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "Hata Bildir 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "Bir Özellik İsteyin 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "Tarihten Kopyalanan Metin"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "Bu uzantı, OCR metin çıkarma işlemini gerçekleştirmek için yerel sistem "
+#~ "araçlarını gerektirir. Uzantının çalışmasını sağlamak için terminalinizi "
+#~ "açın ve temel bağımlılıkları yüklemek üzere aşağıdaki komutu çalıştırın.\n"
+#~ "\n"
+#~ "İpucu: Tesseract, sisteminize yüklediğiniz TÜM dil paketlerini otomatik "
+#~ "olarak algılayacak ve kullanacaktır! Etkinleştirmek için ek dilleri "
+#~ "(örneğin, tesseract-ocr-deu, tesseract-ocr-chi-sim) paket yöneticiniz "
+#~ "aracılığıyla yüklemeniz yeterlidir."

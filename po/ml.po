@@ -1,0 +1,157 @@
+# Malayalam translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ml\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "സിസ്റ്റം ഡിപൻഡൻസി വിട്ടുപോയിരിക്കുന്നു: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "പിരിച്ചുവിടുക"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "ഇതുവരെ ചരിത്രമില്ല"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "ക്രമീകരണങ്ങൾ"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "ടെക്‌സ്‌റ്റ് എക്‌സ്‌ട്രാക്‌റ്റ് ചെയ്‌തു"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "സ്നാപ്പ് ടെക്സ്റ്റ്"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "തിരഞ്ഞെടുക്കലിൽ വാചകമൊന്നും കണ്ടെത്തിയില്ല."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "ടെക്‌സ്‌റ്റ് എക്‌സ്‌ട്രാക്‌റ്റ് ചെയ്‌തു"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "സ്നാപ്പ് ടെക്സ്റ്റ് കോൺഫിഗറേഷൻ"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"സ്‌ക്രീനിൽ എവിടെ നിന്നും നിങ്ങളുടെ ക്ലിപ്പ്ബോർഡിലേക്ക് ടെക്‌സ്‌റ്റ് തൽക്ഷണം എക്‌സ്‌ട്രാക്‌റ്റ് ചെയ്‌ത് "
+"പകർത്തുക."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "പെരുമാറ്റവും കുറുക്കുവഴികളും"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "എക്‌സ്‌ട്രാക്‌റ്റ് ചെയ്‌ത വാചക അറിയിപ്പ് കാണിക്കുക"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "നിങ്ങളുടെ പകർത്തിയ ടെക്സ്റ്റ് സന്ദർഭം അടങ്ങുന്ന ഒരു സിസ്റ്റം ബാനർ പ്രദർശിപ്പിക്കുന്നു."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "എക്‌സ്‌ട്രാക്ഷൻ ഹിസ്റ്ററി പ്രവർത്തനക്ഷമമാക്കുക"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "സന്ദർഭ മെനുവിൽ 15 സമീപകാല എക്‌സ്‌ട്രാക്‌ഷനുകളുടെ ചരിത്രം സൂക്ഷിക്കുക."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "കീബോർഡ് കുറുക്കുവഴി ട്രിഗർ"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"കുറുക്കുവഴി സജ്ജീകരിക്കാൻ ക്ലിക്ക് ചെയ്യുക. റദ്ദാക്കാൻ Esc അമർത്തുക, പ്രവർത്തനരഹിതമാക്കാൻ "
+"Backspace അമർത്തുക."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "അപ്രാപ്തമാക്കി"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "കീകൾ അമർത്തുക..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "ഡെവലപ്പർ വിശദാംശങ്ങൾ"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "രചയിതാവ്"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "പതിപ്പ്"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "എനിക്കൊരു കാപ്പി വാങ്ങിത്തരൂ ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "ഒരു ബഗ് 🐛 റിപ്പോർട്ട് ചെയ്യുക"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "ഒരു ഫീച്ചർ അഭ്യർത്ഥിക്കുക 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "ചരിത്രത്തിൽ നിന്ന് പകർത്തിയ വാചകം"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "OCR ടെക്‌സ്‌റ്റ് എക്‌സ്‌ട്രാക്ഷൻ നടത്താൻ ഈ വിപുലീകരണത്തിന് നേറ്റീവ് സിസ്റ്റം ടൂളുകൾ ആവശ്യമാണ്. "
+#~ "വിപുലീകരണം പ്രവർത്തിക്കുന്നതിന്, നിങ്ങളുടെ ടെർമിനൽ തുറന്ന് അടിസ്ഥാന ഡിപൻഡൻസികൾ ഇൻസ്റ്റാൾ "
+#~ "ചെയ്യുന്നതിന് താഴെയുള്ള കമാൻഡ് പ്രവർത്തിപ്പിക്കുക.\n"
+#~ "\n"
+#~ "നുറുങ്ങ്: നിങ്ങളുടെ സിസ്റ്റത്തിൽ ഇൻസ്റ്റാൾ ചെയ്തിട്ടുള്ള ഏത് ഭാഷാ പാക്കുകളും Tesseract "
+#~ "സ്വയമേവ കണ്ടെത്തി ഉപയോഗിക്കും! അധിക ഭാഷകൾ (ഉദാ., tesseract-ocr-deu, tesseract-"
+#~ "ocr-chi-sim) പ്രവർത്തനക്ഷമമാക്കാൻ നിങ്ങളുടെ പാക്കേജ് മാനേജർ വഴി ഇൻസ്റ്റാൾ ചെയ്യുക."

@@ -1,0 +1,157 @@
+# Kannada translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: kn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "ಸಿಸ್ಟಮ್ ಅವಲಂಬನೆ ಕಾಣೆಯಾಗಿದೆ: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "ವಜಾಗೊಳಿಸಿ"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "ಇನ್ನೂ ಇತಿಹಾಸವಿಲ್ಲ"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "ಸೆಟ್ಟಿಂಗ್‌ಗಳು"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "ಪಠ್ಯವನ್ನು ಹೊರತೆಗೆಯಲಾಗಿದೆ"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "ಸ್ನ್ಯಾಪ್ ಪಠ್ಯ"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "ಆಯ್ಕೆಯಲ್ಲಿ ಯಾವುದೇ ಪಠ್ಯ ಕಂಡುಬಂದಿಲ್ಲ."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "ಪಠ್ಯವನ್ನು ಹೊರತೆಗೆಯಲಾಗಿದೆ"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "ಸ್ನ್ಯಾಪ್ ಪಠ್ಯ ಕಾನ್ಫಿಗರೇಶನ್"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"ಪರದೆಯ ಮೇಲೆ ಎಲ್ಲಿಂದಲಾದರೂ ನಿಮ್ಮ ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ಪಠ್ಯವನ್ನು ತಕ್ಷಣವೇ ಹೊರತೆಗೆಯಿರಿ ಮತ್ತು "
+"ನಕಲಿಸಿ."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "ನಡವಳಿಕೆ ಮತ್ತು ಶಾರ್ಟ್‌ಕಟ್‌ಗಳು"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "ಹೊರತೆಗೆಯಲಾದ ಪಠ್ಯ ಅಧಿಸೂಚನೆಯನ್ನು ತೋರಿಸಿ"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "ನಿಮ್ಮ ನಕಲಿಸಿದ ಪಠ್ಯ ಸಂದರ್ಭವನ್ನು ಹೊಂದಿರುವ ಸಿಸ್ಟಂ ಬ್ಯಾನರ್ ಅನ್ನು ಪ್ರದರ್ಶಿಸುತ್ತದೆ."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "ಹೊರತೆಗೆಯುವಿಕೆ ಇತಿಹಾಸವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "ಸಂದರ್ಭ ಮೆನುವಿನಲ್ಲಿ 15 ಇತ್ತೀಚಿನ ಹೊರತೆಗೆಯುವಿಕೆಗಳ ಇತಿಹಾಸವನ್ನು ಇರಿಸಿ."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "ಕೀಬೋರ್ಡ್ ಶಾರ್ಟ್‌ಕಟ್ ಟ್ರಿಗ್ಗರ್"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"ಶಾರ್ಟ್‌ಕಟ್ ಹೊಂದಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ. ರದ್ದುಗೊಳಿಸಲು Esc, ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು Backspace ಒತ್ತಿರಿ."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "ಕೀಲಿಗಳನ್ನು ಒತ್ತಿ..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "ಡೆವಲಪರ್ ವಿವರಗಳು"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "ಲೇಖಕ"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "ಆವೃತ್ತಿ"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "ನನಗೆ ಕಾಫಿ ಖರೀದಿಸಿ ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "ದೋಷವನ್ನು ವರದಿ ಮಾಡಿ 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "ವೈಶಿಷ್ಟ್ಯವನ್ನು ವಿನಂತಿಸಿ 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "ಇತಿಹಾಸದಿಂದ ಪಠ್ಯವನ್ನು ನಕಲಿಸಲಾಗಿದೆ"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "OCR ಪಠ್ಯವನ್ನು ಹೊರತೆಗೆಯಲು ಈ ವಿಸ್ತರಣೆಗೆ ಸ್ಥಳೀಯ ಸಿಸ್ಟಮ್ ಪರಿಕರಗಳ ಅಗತ್ಯವಿದೆ. "
+#~ "ವಿಸ್ತರಣೆಯು ಕಾರ್ಯನಿರ್ವಹಿಸಲು, ನಿಮ್ಮ ಟರ್ಮಿನಲ್ ಅನ್ನು ತೆರೆಯಿರಿ ಮತ್ತು ಮೂಲ ಅವಲಂಬನೆಗಳನ್ನು "
+#~ "ಸ್ಥಾಪಿಸಲು ಕೆಳಗಿನ ಆಜ್ಞೆಯನ್ನು ಚಲಾಯಿಸಿ.\n"
+#~ "\n"
+#~ "ಸಲಹೆ: ನಿಮ್ಮ ಸಿಸ್ಟಂನಲ್ಲಿ ನೀವು ಸ್ಥಾಪಿಸಿದ ಯಾವುದೇ ಭಾಷಾ ಪ್ಯಾಕ್‌ಗಳನ್ನು Tesseract "
+#~ "ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಪತ್ತೆ ಮಾಡುತ್ತದೆ ಮತ್ತು ಬಳಸುತ್ತದೆ! ಅವುಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ನಿಮ್ಮ "
+#~ "ಪ್ಯಾಕೇಜ್ ಮ್ಯಾನೇಜರ್ ಮೂಲಕ ಹೆಚ್ಚುವರಿ ಭಾಷೆಗಳನ್ನು (ಉದಾ., tesseract-ocr-deu, "
+#~ "tesseract-ocr-chi-sim) ಸ್ಥಾಪಿಸಿ."

@@ -1,0 +1,155 @@
+# Bengali translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "অনুপস্থিত সিস্টেম নির্ভরতা: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "খারিজ"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "এখনো কোনো ইতিহাস নেই"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "সেটিংস"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "টেক্সট এক্সট্রাক্ট করা হয়েছে"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "স্ন্যাপ টেক্সট"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "নির্বাচনে কোনো পাঠ্য পাওয়া যায়নি।"
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "টেক্সট এক্সট্রাক্ট করা হয়েছে"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "স্ন্যাপ টেক্সট কনফিগারেশন"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"স্ক্রিনের যেকোন জায়গা থেকে অবিলম্বে আপনার ক্লিপবোর্ডে পাঠ্য বের করুন এবং অনুলিপি করুন।"
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "আচরণ এবং শর্টকাট"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "এক্সট্রাক্টেড টেক্সট নোটিফিকেশন দেখান"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "আপনার অনুলিপি করা পাঠ্য প্রসঙ্গে একটি সিস্টেম ব্যানার প্রদর্শন করে।"
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "নিষ্কাশন ইতিহাস সক্ষম করুন"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "প্রসঙ্গ মেনুতে 15টি সাম্প্রতিক নিষ্কাশনের ইতিহাস রাখুন।"
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "কীবোর্ড শর্টকাট ট্রিগার"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr "শর্টকাট সেট করতে ক্লিক করুন। বাতিল করতে Esc, নিষ্ক্রিয় করতে ব্যাকস্পেস টিপুন।"
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "অক্ষম"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "কী টিপুন..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "বিকাশকারীর বিবরণ"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "লেখক"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "সংস্করণ"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "আমাকে একটা কফি কিনে দাও ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "একটি বাগ রিপোর্ট করুন 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "একটি বৈশিষ্ট্যের জন্য অনুরোধ করুন 🚀৷"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "ইতিহাস থেকে টেক্সট কপি করা হয়েছে"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "OCR পাঠ্য নিষ্কাশন করতে এই এক্সটেনশনটির জন্য নেটিভ সিস্টেম টুলের প্রয়োজন। "
+#~ "এক্সটেনশন কাজ করার জন্য, আপনার টার্মিনাল খুলুন এবং বেস নির্ভরতাগুলি ইনস্টল করতে "
+#~ "নীচের কমান্ডটি চালান৷\n"
+#~ "\n"
+#~ "টিপ: Tesseract স্বয়ংক্রিয়ভাবে সনাক্ত করবে এবং আপনার সিস্টেমে ইনস্টল করা যেকোনো "
+#~ "ভাষা প্যাক ব্যবহার করবে! তাদের সক্ষম করতে আপনার প্যাকেজ ম্যানেজারের মাধ্যমে "
+#~ "কেবল অতিরিক্ত ভাষা (যেমন, tesseract-ocr-deu, tesseract-ocr-chi-sim) ইনস্টল "
+#~ "করুন।"

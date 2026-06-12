@@ -1,0 +1,158 @@
+# Indonesian translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "Ketergantungan Sistem Hilang: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "Membubarkan"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "Belum ada sejarah"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "Pengaturan"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "Teks Diekstraksi"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "Jepret Teks"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "Tidak ada teks yang ditemukan dalam pilihan."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "Teks Diekstraksi"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "Konfigurasi Teks Jepret"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"Ekstrak dan salin teks secara instan ke clipboard Anda dari mana saja di "
+"layar."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "Perilaku & Pintasan"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "Tampilkan Pemberitahuan Teks yang Diekstraksi"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "Menampilkan spanduk sistem yang berisi konteks teks yang Anda salin."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "Aktifkan Riwayat Ekstraksi"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "Simpan riwayat hingga 15 ekstraksi terkini di menu konteks."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "Pemicu Pintasan Keyboard"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"Klik untuk mengatur pintasan. Tekan Esc untuk membatalkan, Backspace untuk "
+"menonaktifkan."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "Dengan disabilitas"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "Tekan tombol..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "Detail Pengembang"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "Pengarang"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "Versi"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "Belikan aku kopi ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "Laporkan Bug 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "Minta Fitur 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "Teks Disalin dari Sejarah"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "Ekstensi ini memerlukan alat sistem asli untuk melakukan ekstraksi teks "
+#~ "OCR. Agar ekstensi berfungsi, buka terminal Anda dan jalankan perintah di "
+#~ "bawah ini untuk menginstal dependensi dasar.\n"
+#~ "\n"
+#~ "Kiat: Tesseract akan secara otomatis mendeteksi dan menggunakan paket "
+#~ "bahasa APAPUN yang telah Anda instal di sistem Anda! Cukup instal bahasa "
+#~ "tambahan (misalnya, tesseract-ocr-deu, tesseract-ocr-chi-sim) melalui "
+#~ "manajer paket Anda untuk mengaktifkannya."

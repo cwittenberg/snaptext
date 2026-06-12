@@ -1,0 +1,155 @@
+# Marathi translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "सिस्टम अवलंबित्व गहाळ आहे: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "डिसमिस करा"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "अजून इतिहास नाही"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "सेटिंग्ज"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "मजकूर काढला"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "स्नॅप मजकूर"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "निवडीत कोणताही मजकूर आढळला नाही."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "मजकूर काढला"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "स्नॅप मजकूर कॉन्फिगरेशन"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr "स्क्रीनवर कुठूनही तुमच्या क्लिपबोर्डवर मजकूर त्वरित काढा आणि कॉपी करा."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "वर्तन आणि शॉर्टकट"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "काढलेला मजकूर सूचना दर्शवा"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "तुमचा कॉपी केलेला मजकूर संदर्भ असलेले सिस्टम बॅनर प्रदर्शित करते."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "निष्कर्ष इतिहास सक्षम करा"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "संदर्भ मेनूमध्ये 15 अलीकडील निष्कर्षांचा इतिहास ठेवा."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "कीबोर्ड शॉर्टकट ट्रिगर"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"शॉर्टकट सेट करण्यासाठी क्लिक करा. रद्द करण्यासाठी Esc दाबा, अक्षम करण्यासाठी बॅकस्पेस "
+"दाबा."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "अक्षम"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "की दाबा..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "विकसक तपशील"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "लेखक"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "आवृत्ती"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "मला एक कॉफी विकत दे ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "बग नोंदवा 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "वैशिष्ट्याची विनंती करा 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "इतिहासातून मजकूर कॉपी केला"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "या विस्ताराला OCR मजकूर काढण्यासाठी नेटिव्ह सिस्टम टूल्सची आवश्यकता आहे. विस्तार "
+#~ "कार्य करण्यासाठी, तुमचे टर्मिनल उघडा आणि बेस डिपेंडेंसी इंस्टॉल करण्यासाठी खालील कमांड "
+#~ "चालवा.\n"
+#~ "\n"
+#~ "टीप: टेसेरॅक्ट आपोआप तुमच्या सिस्टमवर इंस्टॉल केलेले कोणतेही लँग्वेज पॅक शोधून वापरेल! फक्त "
+#~ "अतिरिक्त भाषा (उदा., tesseract-ocr-deu, tesseract-ocr-chi-sim) सक्षम "
+#~ "करण्यासाठी तुमच्या पॅकेज व्यवस्थापकाद्वारे स्थापित करा."

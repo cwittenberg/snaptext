@@ -1,0 +1,159 @@
+# Estonian translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "Puuduv süsteemisõltuvus: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "Loobu"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "Ajalugu veel pole"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "Seaded"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "Tekst ekstraktitud"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "Snap Text"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "Valikust teksti ei leitud."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "Tekst ekstraktitud"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "Snap Text Configuration"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"Ekstraktige ja kopeerige tekst koheselt oma lõikepuhvrisse kõikjalt "
+"ekraanilt."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "Käitumine ja otseteed"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "Näita väljatõmmatud teksti märguannet"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "Kuvab süsteemi bänneri, mis sisaldab teie kopeeritud teksti konteksti."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "Ekstraheerimise ajaloo lubamine"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "Hoidke kontekstimenüüs kuni 15 hiljutise väljavõtte ajalugu."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "Klaviatuuri otsetee päästik"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"Klõpsake otsetee määramiseks. Tühistamiseks vajutage Esc, keelamiseks "
+"Backspace."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "Keelatud"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "Vajutage klahve..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "Arendaja üksikasjad"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "Autor"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "Versioon"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "Osta mulle kohvi ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "Teatage veast 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "Taotlege funktsiooni 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "Tekst kopeeritud ajaloost"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "See laiendus nõuab OCR-i teksti ekstraheerimiseks natiivseid "
+#~ "süsteemitööriistu. Laienduse tööle panemiseks avage oma terminal ja "
+#~ "käivitage põhisõltuvuste installimiseks allolev käsk.\n"
+#~ "\n"
+#~ "Nõuanne: Tesseract tuvastab ja kasutab automaatselt KÕIKI keelepakette, "
+#~ "mille olete oma süsteemi installinud! Nende lubamiseks installige oma "
+#~ "paketihalduri kaudu lihtsalt lisakeeled (nt tesseract-ocr-deu, tesseract-"
+#~ "ocr-chi-sim)."

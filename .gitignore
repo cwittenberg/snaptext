@@ -1,2 +1,10 @@
+# .gitignore
 build
 build/**/*
+locale/
+locale/**/*
+*.zip
+*.pot
+po/*.mo
+*~
+auto_translate.py

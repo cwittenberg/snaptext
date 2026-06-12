@@ -1,0 +1,152 @@
+# Chinese translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "缺少系统依赖项：%s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "解雇"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "还没有历史记录"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "设置"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "文本提取"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "捕捉文本"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "在选择中找不到文字。"
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "文本提取"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "捕捉文本配置"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr "从屏幕上的任何位置立即提取文本并将其复制到剪贴板。"
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "行为和快捷方式"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "显示提取的文本通知"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "显示包含复制的文本上下文的系统横幅。"
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "启用提取历史记录"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "在上下文菜单中保留最多 15 个最近提取的历史记录。"
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "键盘快捷键触发"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr "单击可设置快捷方式。按 Esc 取消，按 Backspace 禁用。"
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "残疾人"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "按键..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "开发商详情"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "作者"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "版本"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "请我喝杯咖啡☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "报告错误🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "请求功能🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "从历史中复制的文本"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "此扩展需要本机系统工具来执行 OCR 文本提取。要使扩展正常工作，请打开终端并"
+#~ "运行以下命令来安装基本依赖项。\n"
+#~ "\n"
+#~ "提示：Tesseract 将自动检测并使用您在系统上安装的任何语言包！只需通过包管理"
+#~ "器安装其他语言（例如 tesseract-ocr-deu、tesseract-ocr-chi-sim）即可启用它"
+#~ "们。"

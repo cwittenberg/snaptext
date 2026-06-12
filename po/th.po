@@ -1,0 +1,152 @@
+# Thai translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "ขาดการพึ่งพาระบบ: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "อนุญาตให้ออกไป"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "ยังไม่มีประวัติ"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "การตั้งค่า"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "ข้อความที่แยกออกมา"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "สแน็ปข้อความ"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "ไม่พบข้อความในส่วนที่เลือก"
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "ข้อความที่แยกออกมา"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "การกำหนดค่าข้อความ Snap"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr "แยกและคัดลอกข้อความไปยังคลิปบอร์ดของคุณได้ทันทีจากทุกที่บนหน้าจอ"
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "พฤติกรรมและทางลัด"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "แสดงการแจ้งเตือนข้อความที่แยกออกมา"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "แสดงแบนเนอร์ระบบที่มีบริบทข้อความที่คุณคัดลอก"
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "เปิดใช้งานประวัติการแยกข้อมูล"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "เก็บประวัติการแยกข้อมูลล่าสุดได้สูงสุด 15 รายการในเมนูบริบท"
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "ทริกเกอร์แป้นพิมพ์ลัด"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr "คลิกเพื่อตั้งค่าทางลัด กด Esc เพื่อยกเลิก กด Backspace เพื่อปิดใช้งาน"
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "พิการ"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "กดปุ่ม..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "รายละเอียดผู้พัฒนา"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "ผู้เขียน"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "เวอร์ชัน"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "ซื้อกาแฟให้ฉันหน่อย ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "รายงานข้อผิดพลาด 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "ขอคุณสมบัติ 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "ข้อความที่คัดลอกมาจากประวัติศาสตร์"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "ส่วนขยายนี้ต้องใช้เครื่องมือระบบเนทิฟเพื่อทำการแยกข้อความ OCR เพื่อให้ส่วนขยายใช้งานได้ "
+#~ "ให้เปิดเทอร์มินัลแล้วรันคำสั่งด้านล่างเพื่อติดตั้งการขึ้นต่อกันพื้นฐาน\n"
+#~ "\n"
+#~ "เคล็ดลับ: Tesseract จะตรวจจับและใช้ชุดภาษาใดๆ ที่คุณติดตั้งไว้ในระบบของคุณโดยอัตโนมัติ! "
+#~ "เพียงติดตั้งภาษาเพิ่มเติม (เช่น tesseract-ocr-deu, tesseract-ocr-chi-sim) "
+#~ "ผ่านตัวจัดการแพ็คเกจของคุณเพื่อเปิดใช้งาน"

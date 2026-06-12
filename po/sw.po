@@ -1,0 +1,160 @@
+# Swahili translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: sw\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "Utegemezi wa Mfumo haupo: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "Ondoa"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "Hakuna historia bado"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "Mipangilio"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "Maandishi Yametolewa"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "Nakala ya Snap"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "Hakuna maandishi yaliyopatikana katika uteuzi."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "Maandishi Yametolewa"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "Usanidi wa Maandishi ya Snap"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"Toa na unakili maandishi papo hapo kwenye ubao wako wa kunakili kutoka "
+"popote kwenye skrini."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "Tabia & Njia za mkato"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "Onyesha Arifa ya Maandishi Iliyotolewa"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "Huonyesha bango la mfumo lililo na muktadha wa maandishi uliyonakili."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "Washa Historia ya Uchimbaji"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr ""
+"Weka historia ya hadi dondoo 15 za hivi majuzi kwenye menyu ya muktadha."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "Kianzisha Njia ya Mkato ya Kibodi"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"Bofya ili kuweka njia ya mkato. Bonyeza Esc ili kughairi, Backspace ili "
+"kuzima."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "Imezimwa"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "Bonyeza vitufe..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "Maelezo ya Msanidi"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "Mwandishi"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "Toleo"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "Ninunulie kahawa ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "Ripoti Mdudu 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "Omba Kipengele 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "Maandishi Yamenakiliwa kutoka kwa Historia"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "Kiendelezi hiki kinahitaji zana za mfumo asili ili kutekeleza utoaji "
+#~ "maandishi wa OCR. Ili kufanya kiendelezi kifanye kazi, fungua terminal "
+#~ "yako na utekeleze amri iliyo hapa chini ili kusakinisha vitegemezi "
+#~ "msingi.\n"
+#~ "\n"
+#~ "Kidokezo: Tesseract itatambua kiotomatiki na kutumia pakiti ZOZOTE za "
+#~ "lugha ambazo umesakinisha kwenye mfumo wako! Sakinisha kwa urahisi lugha "
+#~ "za ziada (k.m., tesseract-ocr-deu, tesseract-ocr-chi-sim) kupitia "
+#~ "kidhibiti kifurushi chako ili kuziwezesha."

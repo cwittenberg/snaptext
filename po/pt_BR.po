@@ -1,0 +1,160 @@
+# Portuguese translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "Dependência do sistema ausente: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "Liberar"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "Ainda não há histórico"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "Configurações"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "Texto extraído"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "Texto instantâneo"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "Nenhum texto encontrado na seleção."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "Texto extraído"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "Configuração de texto instantâneo"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"Extraia e copie texto instantaneamente para sua área de transferência de "
+"qualquer lugar da tela."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "Comportamento e atalhos"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "Mostrar notificação de texto extraído"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "Exibe um banner do sistema contendo o contexto do texto copiado."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "Habilitar histórico de extração"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr ""
+"Mantenha um histórico de até 15 extrações recentes no menu de contexto."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "Gatilho de atalho de teclado"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"Clique para definir o atalho. Pressione Esc para cancelar, Backspace para "
+"desativar."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "Desabilitado"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "Pressione as teclas..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "Detalhes do desenvolvedor"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "Autor"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "Versão"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "Me compre um café ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "Reportar um bug 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "Solicite um recurso 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "Texto copiado do histórico"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "Esta extensão requer ferramentas nativas do sistema para realizar a "
+#~ "extração de texto OCR. Para fazer a extensão funcionar, abra seu terminal "
+#~ "e execute o comando abaixo para instalar as dependências básicas.\n"
+#~ "\n"
+#~ "Dica: o Tesseract detectará e usará automaticamente QUALQUER pacote de "
+#~ "idiomas que você tenha instalado em seu sistema! Basta instalar idiomas "
+#~ "adicionais (por exemplo, tesseract-ocr-deu, tesseract-ocr-chi-sim) "
+#~ "através do seu gerenciador de pacotes para habilitá-los."

@@ -1,0 +1,161 @@
+# Romanian translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "Lipsește dependența de sistem: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "Respingeți"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "Nicio istorie încă"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "Setări"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "Text extras"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "Snap Text"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "Nu a fost găsit niciun text în selecție."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "Text extras"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "Configurare Snap Text"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr ""
+"Extrageți și copiați instantaneu text în clipboard de oriunde pe ecran."
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "Comportament și comenzi rapide"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "Afișați notificarea textului extras"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "Afișează un banner de sistem care conține contextul textului copiat."
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "Activați Istoricul extracției"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr ""
+"Păstrați un istoric de până la 15 extrageri recente în meniul contextual."
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "Declanșare comenzi rapide de la tastatură"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"Faceți clic pentru a seta comanda rapidă. Apăsați Esc pentru a anula, "
+"Backspace pentru a dezactiva."
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "Dezactivat"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "Apăsați tastele..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "Detalii despre dezvoltator"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "Autor"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "Versiune"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "Cumpără-mi o cafea ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "Raportați o eroare 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "Solicitați o funcție 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "Text copiat din istorie"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "Această extensie necesită instrumente de sistem native pentru a efectua "
+#~ "extragerea textului OCR. Pentru ca extensia să funcționeze, deschideți "
+#~ "terminalul și rulați comanda de mai jos pentru a instala dependențele de "
+#~ "bază.\n"
+#~ "\n"
+#~ "Sfat: Tesseract va detecta și va folosi automat ORICE pachete de limbi pe "
+#~ "care le-ați instalat pe sistemul dvs.! Pur și simplu instalați limbi "
+#~ "suplimentare (de exemplu, tesseract-ocr-deu, tesseract-ocr-chi-sim) prin "
+#~ "managerul de pachete pentru a le activa."

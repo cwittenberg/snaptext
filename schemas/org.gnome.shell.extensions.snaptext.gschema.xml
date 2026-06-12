@@ -17,7 +17,7 @@
       <description>Array of recently extracted text strings.</description>
     </key>
     <key name="shortcut-trigger" type="as">
-      <default>['&lt;Super&gt;&lt;Shift&gt;t']</default>
+      <default>[]</default>
       <summary>Trigger shortcut</summary>
       <description>Keyboard shortcut to trigger snap text extraction.</description>
     </key>

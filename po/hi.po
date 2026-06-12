@@ -1,0 +1,156 @@
+# Hindi translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"PO-Revision-Date: 2026-06-12 01:36+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:83
+#, fuzzy, javascript-format
+msgid "Missing dependency: %s"
+msgstr "गुम सिस्टम निर्भरता: %s"
+
+#: extension.js:90
+msgid "Install Tesseract and at least one language package."
+msgstr ""
+
+#: extension.js:91
+msgid "Install gnome-screenshot and try again."
+msgstr ""
+
+#: extension.js:139
+msgid "Dismiss"
+msgstr "नकार देना"
+
+#: extension.js:227
+msgid "No history yet"
+msgstr "अभी तक कोई इतिहास नहीं"
+
+#: extension.js:239
+msgid "Settings"
+msgstr "सेटिंग्स"
+
+#: extension.js:255
+#, fuzzy
+msgid "Text copied"
+msgstr "पाठ निकाला गया"
+
+#: extension.js:476
+msgid "Snap Text"
+msgstr "स्नैप टेक्स्ट"
+
+#: extension.js:476
+#, fuzzy
+msgid "No text found."
+msgstr "चयन में कोई पाठ नहीं मिला."
+
+#: extension.js:492
+#, fuzzy
+msgid "Text extracted"
+msgstr "पाठ निकाला गया"
+
+#: prefs.js:36
+msgid "Snap Text Configuration"
+msgstr "स्नैप टेक्स्ट कॉन्फ़िगरेशन"
+
+#: prefs.js:42
+msgid ""
+"Instantly extract and copy text to your clipboard from anywhere on the "
+"screen."
+msgstr "स्क्रीन पर कहीं से भी टेक्स्ट को तुरंत अपने क्लिपबोर्ड पर निकालें और कॉपी करें।"
+
+#: prefs.js:53
+msgid "Behavior & Shortcuts"
+msgstr "व्यवहार और शॉर्टकट"
+
+#: prefs.js:57
+msgid "Show Extracted Text Notification"
+msgstr "निकाली गई पाठ अधिसूचना दिखाएँ"
+
+#: prefs.js:58
+msgid "Displays a system banner containing your copied text context."
+msgstr "आपके कॉपी किए गए टेक्स्ट संदर्भ वाला एक सिस्टम बैनर प्रदर्शित करता है।"
+
+#: prefs.js:72
+msgid "Enable Extraction History"
+msgstr "निष्कर्षण इतिहास सक्षम करें"
+
+#: prefs.js:73
+msgid "Keep a history of up to 15 recent extractions in the context menu."
+msgstr "संदर्भ मेनू में हाल के 15 निष्कर्षों तक का इतिहास रखें।"
+
+#: prefs.js:87
+msgid "Keyboard Shortcut Trigger"
+msgstr "कीबोर्ड शॉर्टकट ट्रिगर"
+
+#: prefs.js:88
+msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
+msgstr ""
+"शॉर्टकट सेट करने के लिए क्लिक करें. रद्द करने के लिए Esc दबाएँ, अक्षम करने के लिए बैकस्पेस "
+"दबाएँ।"
+
+#: prefs.js:94 prefs.js:137
+msgid "Disabled"
+msgstr "अक्षम"
+
+#: prefs.js:114
+msgid "Press keys..."
+msgstr "कुँजियाँ दबाएँ..."
+
+#: prefs.js:159
+msgid "Developer Details"
+msgstr "डेवलपर विवरण"
+
+#: prefs.js:161
+msgid "Author"
+msgstr "लेखक"
+
+#: prefs.js:162
+msgid "Version"
+msgstr "संस्करण"
+
+#. github and donate:
+#: prefs.js:177
+msgid "Buy me a coffee ☕"
+msgstr "मेरे लिए एक कॉफ़ी खरीदो ☕"
+
+#: prefs.js:178
+msgid "Report a Bug 🐛"
+msgstr "बग की रिपोर्ट करें 🐛"
+
+#: prefs.js:179
+msgid "Request a Feature 🚀"
+msgstr "एक सुविधा का अनुरोध करें 🚀"
+
+#~ msgid "Text Copied from History"
+#~ msgstr "इतिहास से कॉपी किया गया पाठ"
+
+#~ msgid ""
+#~ "This extension requires native system tools to perform OCR text "
+#~ "extraction. To get the extension working, open your terminal and run the "
+#~ "command below to install the base dependencies.\n"
+#~ "\n"
+#~ "Tip: Tesseract will automatically detect and use ANY language packs you "
+#~ "have installed on your system! Simply install additional languages (e.g., "
+#~ "tesseract-ocr-deu, tesseract-ocr-chi-sim) via your package manager to "
+#~ "enable them."
+#~ msgstr ""
+#~ "इस एक्सटेंशन को OCR टेक्स्ट निष्कर्षण करने के लिए मूल सिस्टम टूल की आवश्यकता होती है। "
+#~ "एक्सटेंशन को कार्यशील बनाने के लिए, अपना टर्मिनल खोलें और आधार निर्भरता स्थापित करने "
+#~ "के लिए नीचे दिए गए कमांड को चलाएँ।\n"
+#~ "\n"
+#~ "टिप: Tesseract स्वचालित रूप से आपके सिस्टम पर आपके द्वारा इंस्टॉल किए गए किसी भी "
+#~ "भाषा पैक का पता लगाएगा और उसका उपयोग करेगा! उन्हें सक्षम करने के लिए बस अपने पैकेज "
+#~ "मैनेजर के माध्यम से अतिरिक्त भाषाएं (उदाहरण के लिए, टेसेरैक्ट-ओसीआर-डीयू, टेसेरैक्ट-ओसीआर-"
+#~ "ची-सिम) इंस्टॉल करें।"
