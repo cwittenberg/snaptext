@@ -16,6 +16,11 @@
       <summary>History list</summary>
       <description>Array of recently extracted text strings.</description>
     </key>
+    <key name="enable-shortcut" type="b">
+      <default>false</default>
+      <summary>Enable shortcut</summary>
+      <description>Enable keyboard shortcut to trigger snap text extraction.</description>
+    </key>
     <key name="shortcut-trigger" type="as">
       <default>[]</default>
       <summary>Trigger shortcut</summary>

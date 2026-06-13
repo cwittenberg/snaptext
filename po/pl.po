@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"POT-Creation-Date: 2026-06-12 22:17+0200\n"
 "PO-Revision-Date: 2026-06-12 01:36+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,46 +18,51 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: extension.js:83
+#: extension.js:20
+#, fuzzy
+msgid "Snap Text Error"
+msgstr "Przyciągnij tekst"
+
+#: extension.js:87
 #, fuzzy, javascript-format
 msgid "Missing dependency: %s"
 msgstr "Brakująca zależność systemowa: %s"
 
-#: extension.js:90
+#: extension.js:94
 msgid "Install Tesseract and at least one language package."
 msgstr ""
 
-#: extension.js:91
+#: extension.js:95
 msgid "Install gnome-screenshot and try again."
 msgstr ""
 
-#: extension.js:139
+#: extension.js:143
 msgid "Dismiss"
 msgstr "Odrzucać"
 
-#: extension.js:227
+#: extension.js:244
 msgid "No history yet"
 msgstr "Nie ma jeszcze historii"
 
-#: extension.js:239
+#: extension.js:256
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: extension.js:255
+#: extension.js:272
 #, fuzzy
 msgid "Text copied"
 msgstr "Tekst wyodrębniony"
 
-#: extension.js:476
+#: extension.js:498
 msgid "Snap Text"
 msgstr "Przyciągnij tekst"
 
-#: extension.js:476
+#: extension.js:498
 #, fuzzy
 msgid "No text found."
 msgstr "Nie znaleziono tekstu w zaznaczeniu."
 
-#: extension.js:492
+#: extension.js:514
 #, fuzzy
 msgid "Text extracted"
 msgstr "Tekst wyodrębniony"
@@ -96,47 +101,59 @@ msgstr ""
 "Zachowaj historię maksymalnie 15 ostatnich wyodrębnień w menu kontekstowym."
 
 #: prefs.js:87
-msgid "Keyboard Shortcut Trigger"
+#, fuzzy
+msgid "Enable Keyboard Shortcut"
 msgstr "Wyzwalacz skrótu klawiaturowego"
 
 #: prefs.js:88
+msgid "Allow triggering extraction via a keyboard shortcut."
+msgstr ""
+
+#: prefs.js:102
+msgid "Keyboard Shortcut Trigger"
+msgstr "Wyzwalacz skrótu klawiaturowego"
+
+#: prefs.js:103
 msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
 msgstr ""
 "Kliknij, aby ustawić skrót. Naciśnij Esc, aby anulować, Backspace, aby "
 "wyłączyć."
 
-#: prefs.js:94 prefs.js:137
+#: prefs.js:111 prefs.js:165
 msgid "Disabled"
 msgstr "Wyłączony"
 
-#: prefs.js:114
+#: prefs.js:142
 msgid "Press keys..."
 msgstr "Naciśnij klawisze..."
 
-#: prefs.js:159
-msgid "Developer Details"
-msgstr "Szczegóły dewelopera"
-
-#: prefs.js:161
-msgid "Author"
-msgstr "Autor"
-
-#: prefs.js:162
-msgid "Version"
-msgstr "Wersja"
-
-#. github and donate:
-#: prefs.js:177
+#. GitHub repo links :
+#: prefs.js:201
+#, fuzzy
 msgid "Buy me a coffee ☕"
 msgstr "Kup mi kawę ☕"
 
-#: prefs.js:178
+#: prefs.js:202
+#, fuzzy
 msgid "Report a Bug 🐛"
 msgstr "Zgłoś błąd 🐛"
 
-#: prefs.js:179
-msgid "Request a Feature 🚀"
+#: prefs.js:203
+#, fuzzy
+msgid "Request a Feature 💡"
 msgstr "Poproś o funkcję 🚀"
+
+#: prefs.js:209
+msgid "Developer Details"
+msgstr "Szczegóły dewelopera"
+
+#: prefs.js:211
+msgid "Author"
+msgstr "Autor"
+
+#: prefs.js:212
+msgid "Version"
+msgstr "Wersja"
 
 #~ msgid "Text Copied from History"
 #~ msgstr "Tekst skopiowany z historii"

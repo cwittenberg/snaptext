@@ -83,24 +83,52 @@ export default class SnapTextPreferences extends ExtensionPreferences {
         historyRow.activatable_widget = toggleHistory;
         groupSettings.add(historyRow);
         
+        const enableShortcutRow = new Adw.ActionRow({
+            title: _('Enable Keyboard Shortcut'),
+            subtitle: _('Allow triggering extraction via a keyboard shortcut.'),
+            title_lines: 0,
+            subtitle_lines: 0
+        });
+        const toggleShortcut = new Gtk.Switch({
+            active: settings.get_boolean('enable-shortcut'),
+            valign: Gtk.Align.CENTER,
+        });
+        settings.bind('enable-shortcut', toggleShortcut, 'active', Gio.SettingsBindFlags.DEFAULT);
+        enableShortcutRow.add_suffix(toggleShortcut);
+        enableShortcutRow.activatable_widget = toggleShortcut;
+        groupSettings.add(enableShortcutRow);
+
         const shortcutRow = new Adw.ActionRow({
             title: _('Keyboard Shortcut Trigger'),
             subtitle: _('Click to set shortcut. Press Esc to cancel, Backspace to disable.'),
             title_lines: 0,
             subtitle_lines: 0
         });
-                 
+        
+        settings.bind('enable-shortcut', shortcutRow, 'sensitive', Gio.SettingsBindFlags.GET);
+        
         const shortcutLabel = new Gtk.ShortcutLabel({
             disabled_text: _('Disabled'),
             accelerator: settings.get_strv('shortcut-trigger')[0] || '',
             valign: Gtk.Align.CENTER
         });
-                 
+        
+        // according to GNOME guidelines: default hotkey is not allowed on extension enablement. I set it only when the switch is enabled.
+        toggleShortcut.connect('notify::active', () => {
+            if (toggleShortcut.active) {
+                let current = settings.get_strv('shortcut-trigger');
+                if (!current || current.length === 0 || current[0] === '') {
+                    settings.set_strv('shortcut-trigger', ['<Super><Shift>t']);
+                    shortcutLabel.set_accelerator('<Super><Shift>t');
+                }
+            }
+        });
+
         const shortcutButton = new Gtk.Button({
             child: shortcutLabel,
             valign: Gtk.Align.CENTER
         });
-                 
+        
         let isRecording = false;
         shortcutButton.connect('clicked', () => {
             if (isRecording) {
@@ -114,21 +142,21 @@ export default class SnapTextPreferences extends ExtensionPreferences {
                 shortcutLabel.set_disabled_text(_('Press keys...'));
             }
         });
-                 
+        
         const keyController = new Gtk.EventControllerKey();
         keyController.set_propagation_phase(Gtk.PropagationPhase.CAPTURE);
         window.add_controller(keyController);
-                 
+        
         keyController.connect('key-pressed', (controller, keyval, keycode, state) => {
             if (!isRecording) return false;
-                         
+            
             if (keyval === Gdk.KEY_Escape) {
                 isRecording = false;
                 shortcutButton.remove_css_class('suggested-action');
                 shortcutLabel.set_accelerator(settings.get_strv('shortcut-trigger')[0] || '');
                 return true;
             }
-                         
+            
             if (keyval === Gdk.KEY_BackSpace) {
                 isRecording = false;
                 settings.set_strv('shortcut-trigger', ['']);
@@ -137,7 +165,7 @@ export default class SnapTextPreferences extends ExtensionPreferences {
                 shortcutLabel.set_disabled_text(_('Disabled'));
                 return true;
             }
-                         
+            
             let mask = state & Gtk.accelerator_get_default_mod_mask();
             if (Gtk.accelerator_valid(keyval, mask)) {
                 let accelName = Gtk.accelerator_name(keyval, mask);
@@ -147,21 +175,17 @@ export default class SnapTextPreferences extends ExtensionPreferences {
                 shortcutLabel.set_accelerator(accelName);
                 return true;
             }
-                         
+            
             return true;
-         });
+        });
+
         shortcutRow.add_suffix(shortcutButton);
         shortcutRow.activatable_widget = shortcutButton;
         groupSettings.add(shortcutRow);
+
         page.add(groupSettings);
         
-        const groupAbout = new Adw.PreferencesGroup({
-            title: _('Developer Details')
-        });
-        groupAbout.add(new Adw.ActionRow({ title: _('Author'), subtitle: 'Christian Wittenberg', title_lines: 0, subtitle_lines: 0 }));
-        groupAbout.add(new Adw.ActionRow({ title: _('Version'), subtitle: '1.0.0 (Production Release)', title_lines: 0, subtitle_lines: 0 }));
-        page.add(groupAbout);
-        
+        // Group Links (Buttons) moved above Developer Details
         const groupLinks = new Adw.PreferencesGroup();
         
         const linkBox = new Gtk.Box({
@@ -172,14 +196,21 @@ export default class SnapTextPreferences extends ExtensionPreferences {
             margin_top: 16,
             margin_bottom: 16
         });
-
-        //github and donate:
+        
+        // GitHub repo links :
         linkBox.append(createLinkButton(_('Buy me a coffee ☕'), 'https://ko-fi.com/cwittenberg', 'suggested-action'));
-        linkBox.append(createLinkButton(_('Report a Bug 🐛'), 'https://github.com/cwittenberg/omnipanel/issues/new?template=bug_report.md'));
-        linkBox.append(createLinkButton(_('Request a Feature 🚀'), 'https://github.com/cwittenberg/omnipanel/issues/new?template=feature_request.md'));
+        linkBox.append(createLinkButton(_('Report a Bug 🐛'), 'https://github.com/cwittenberg/snaptext/issues/new?template=bug_report.md'));
+        linkBox.append(createLinkButton(_('Request a Feature 💡'), 'https://github.com/cwittenberg/snaptext/issues/new?template=feature_request.md'));
         
         groupLinks.add(linkBox);
         page.add(groupLinks);
+   
+        const groupAbout = new Adw.PreferencesGroup({
+            title: _('Developer Details')
+        });
+        groupAbout.add(new Adw.ActionRow({ title: _('Author'), subtitle: 'Christian Wittenberg', title_lines: 0, subtitle_lines: 0 }));
+        groupAbout.add(new Adw.ActionRow({ title: _('Version'), subtitle: '1.0.0 (Production Release)', title_lines: 0, subtitle_lines: 0 }));
+        page.add(groupAbout);
         
         window.add(page);
     }

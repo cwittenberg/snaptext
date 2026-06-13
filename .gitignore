@@ -8,3 +8,6 @@ locale/**/*
 po/*.mo
 *~
 auto_translate.py
+.shexli-venv
+sexli*
+shexli-report.json

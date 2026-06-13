@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"POT-Creation-Date: 2026-06-12 22:17+0200\n"
 "PO-Revision-Date: 2026-06-12 01:36+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,46 +17,51 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: extension.js:83
+#: extension.js:20
+#, fuzzy
+msgid "Snap Text Error"
+msgstr "Ajustar texto"
+
+#: extension.js:87
 #, fuzzy, javascript-format
 msgid "Missing dependency: %s"
 msgstr "Dependencia del sistema faltante: %s"
 
-#: extension.js:90
+#: extension.js:94
 msgid "Install Tesseract and at least one language package."
 msgstr ""
 
-#: extension.js:91
+#: extension.js:95
 msgid "Install gnome-screenshot and try again."
 msgstr ""
 
-#: extension.js:139
+#: extension.js:143
 msgid "Dismiss"
 msgstr "Despedir"
 
-#: extension.js:227
+#: extension.js:244
 msgid "No history yet"
 msgstr "Aún no hay historial"
 
-#: extension.js:239
+#: extension.js:256
 msgid "Settings"
 msgstr "Ajustes"
 
-#: extension.js:255
+#: extension.js:272
 #, fuzzy
 msgid "Text copied"
 msgstr "Texto extraído"
 
-#: extension.js:476
+#: extension.js:498
 msgid "Snap Text"
 msgstr "Ajustar texto"
 
-#: extension.js:476
+#: extension.js:498
 #, fuzzy
 msgid "No text found."
 msgstr "No se encontró texto en la selección."
 
-#: extension.js:492
+#: extension.js:514
 #, fuzzy
 msgid "Text extracted"
 msgstr "Texto extraído"
@@ -97,47 +102,59 @@ msgstr ""
 "contextual."
 
 #: prefs.js:87
-msgid "Keyboard Shortcut Trigger"
+#, fuzzy
+msgid "Enable Keyboard Shortcut"
 msgstr "Activador de método abreviado de teclado"
 
 #: prefs.js:88
+msgid "Allow triggering extraction via a keyboard shortcut."
+msgstr ""
+
+#: prefs.js:102
+msgid "Keyboard Shortcut Trigger"
+msgstr "Activador de método abreviado de teclado"
+
+#: prefs.js:103
 msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
 msgstr ""
 "Haga clic para configurar el acceso directo. Presione Esc para cancelar, "
 "Retroceso para desactivar."
 
-#: prefs.js:94 prefs.js:137
+#: prefs.js:111 prefs.js:165
 msgid "Disabled"
 msgstr "Desactivado"
 
-#: prefs.js:114
+#: prefs.js:142
 msgid "Press keys..."
 msgstr "Presione las teclas..."
 
-#: prefs.js:159
-msgid "Developer Details"
-msgstr "Detalles del desarrollador"
-
-#: prefs.js:161
-msgid "Author"
-msgstr "Autor"
-
-#: prefs.js:162
-msgid "Version"
-msgstr "Versión"
-
-#. github and donate:
-#: prefs.js:177
+#. GitHub repo links :
+#: prefs.js:201
+#, fuzzy
 msgid "Buy me a coffee ☕"
 msgstr "Cómprame un café ☕"
 
-#: prefs.js:178
+#: prefs.js:202
+#, fuzzy
 msgid "Report a Bug 🐛"
 msgstr "Informar un error 🐛"
 
-#: prefs.js:179
-msgid "Request a Feature 🚀"
+#: prefs.js:203
+#, fuzzy
+msgid "Request a Feature 💡"
 msgstr "Solicite una función 🚀"
+
+#: prefs.js:209
+msgid "Developer Details"
+msgstr "Detalles del desarrollador"
+
+#: prefs.js:211
+msgid "Author"
+msgstr "Autor"
+
+#: prefs.js:212
+msgid "Version"
+msgstr "Versión"
 
 #~ msgid "Text Copied from History"
 #~ msgstr "Texto copiado de la historia"

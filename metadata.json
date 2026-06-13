@@ -1,6 +1,6 @@
 {
   "name": "Snap Text Extractor",
-  "description": "Select an area of the screen to instantly extract and copy text to the clipboard.",
+  "description": "Grab text from images or anywhere. Select any area of the screen to instantly Extract and Copy text to the Clipboard. Powered by Tesseract OCR.",
   "uuid": "snaptext@cwittenberg",
   "shell-version": [
     "45", "46", "47", "48", "49", "50"

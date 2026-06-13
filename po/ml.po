@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"POT-Creation-Date: 2026-06-12 22:17+0200\n"
 "PO-Revision-Date: 2026-06-12 01:36+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -16,46 +16,51 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:83
+#: extension.js:20
+#, fuzzy
+msgid "Snap Text Error"
+msgstr "സ്നാപ്പ് ടെക്സ്റ്റ്"
+
+#: extension.js:87
 #, fuzzy, javascript-format
 msgid "Missing dependency: %s"
 msgstr "സിസ്റ്റം ഡിപൻഡൻസി വിട്ടുപോയിരിക്കുന്നു: %s"
 
-#: extension.js:90
+#: extension.js:94
 msgid "Install Tesseract and at least one language package."
 msgstr ""
 
-#: extension.js:91
+#: extension.js:95
 msgid "Install gnome-screenshot and try again."
 msgstr ""
 
-#: extension.js:139
+#: extension.js:143
 msgid "Dismiss"
 msgstr "പിരിച്ചുവിടുക"
 
-#: extension.js:227
+#: extension.js:244
 msgid "No history yet"
 msgstr "ഇതുവരെ ചരിത്രമില്ല"
 
-#: extension.js:239
+#: extension.js:256
 msgid "Settings"
 msgstr "ക്രമീകരണങ്ങൾ"
 
-#: extension.js:255
+#: extension.js:272
 #, fuzzy
 msgid "Text copied"
 msgstr "ടെക്‌സ്‌റ്റ് എക്‌സ്‌ട്രാക്‌റ്റ് ചെയ്‌തു"
 
-#: extension.js:476
+#: extension.js:498
 msgid "Snap Text"
 msgstr "സ്നാപ്പ് ടെക്സ്റ്റ്"
 
-#: extension.js:476
+#: extension.js:498
 #, fuzzy
 msgid "No text found."
 msgstr "തിരഞ്ഞെടുക്കലിൽ വാചകമൊന്നും കണ്ടെത്തിയില്ല."
 
-#: extension.js:492
+#: extension.js:514
 #, fuzzy
 msgid "Text extracted"
 msgstr "ടെക്‌സ്‌റ്റ് എക്‌സ്‌ട്രാക്‌റ്റ് ചെയ്‌തു"
@@ -93,47 +98,59 @@ msgid "Keep a history of up to 15 recent extractions in the context menu."
 msgstr "സന്ദർഭ മെനുവിൽ 15 സമീപകാല എക്‌സ്‌ട്രാക്‌ഷനുകളുടെ ചരിത്രം സൂക്ഷിക്കുക."
 
 #: prefs.js:87
-msgid "Keyboard Shortcut Trigger"
+#, fuzzy
+msgid "Enable Keyboard Shortcut"
 msgstr "കീബോർഡ് കുറുക്കുവഴി ട്രിഗർ"
 
 #: prefs.js:88
+msgid "Allow triggering extraction via a keyboard shortcut."
+msgstr ""
+
+#: prefs.js:102
+msgid "Keyboard Shortcut Trigger"
+msgstr "കീബോർഡ് കുറുക്കുവഴി ട്രിഗർ"
+
+#: prefs.js:103
 msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
 msgstr ""
 "കുറുക്കുവഴി സജ്ജീകരിക്കാൻ ക്ലിക്ക് ചെയ്യുക. റദ്ദാക്കാൻ Esc അമർത്തുക, പ്രവർത്തനരഹിതമാക്കാൻ "
 "Backspace അമർത്തുക."
 
-#: prefs.js:94 prefs.js:137
+#: prefs.js:111 prefs.js:165
 msgid "Disabled"
 msgstr "അപ്രാപ്തമാക്കി"
 
-#: prefs.js:114
+#: prefs.js:142
 msgid "Press keys..."
 msgstr "കീകൾ അമർത്തുക..."
 
-#: prefs.js:159
-msgid "Developer Details"
-msgstr "ഡെവലപ്പർ വിശദാംശങ്ങൾ"
-
-#: prefs.js:161
-msgid "Author"
-msgstr "രചയിതാവ്"
-
-#: prefs.js:162
-msgid "Version"
-msgstr "പതിപ്പ്"
-
-#. github and donate:
-#: prefs.js:177
+#. GitHub repo links :
+#: prefs.js:201
+#, fuzzy
 msgid "Buy me a coffee ☕"
 msgstr "എനിക്കൊരു കാപ്പി വാങ്ങിത്തരൂ ☕"
 
-#: prefs.js:178
+#: prefs.js:202
+#, fuzzy
 msgid "Report a Bug 🐛"
 msgstr "ഒരു ബഗ് 🐛 റിപ്പോർട്ട് ചെയ്യുക"
 
-#: prefs.js:179
-msgid "Request a Feature 🚀"
+#: prefs.js:203
+#, fuzzy
+msgid "Request a Feature 💡"
 msgstr "ഒരു ഫീച്ചർ അഭ്യർത്ഥിക്കുക 🚀"
+
+#: prefs.js:209
+msgid "Developer Details"
+msgstr "ഡെവലപ്പർ വിശദാംശങ്ങൾ"
+
+#: prefs.js:211
+msgid "Author"
+msgstr "രചയിതാവ്"
+
+#: prefs.js:212
+msgid "Version"
+msgstr "പതിപ്പ്"
 
 #~ msgid "Text Copied from History"
 #~ msgstr "ചരിത്രത്തിൽ നിന്ന് പകർത്തിയ വാചകം"

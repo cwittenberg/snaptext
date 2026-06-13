@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-12 21:06+0200\n"
+"POT-Creation-Date: 2026-06-12 22:17+0200\n"
 "PO-Revision-Date: 2026-06-12 01:36+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -16,46 +16,51 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:83
+#: extension.js:20
+#, fuzzy
+msgid "Snap Text Error"
+msgstr "สแน็ปข้อความ"
+
+#: extension.js:87
 #, fuzzy, javascript-format
 msgid "Missing dependency: %s"
 msgstr "ขาดการพึ่งพาระบบ: %s"
 
-#: extension.js:90
+#: extension.js:94
 msgid "Install Tesseract and at least one language package."
 msgstr ""
 
-#: extension.js:91
+#: extension.js:95
 msgid "Install gnome-screenshot and try again."
 msgstr ""
 
-#: extension.js:139
+#: extension.js:143
 msgid "Dismiss"
 msgstr "อนุญาตให้ออกไป"
 
-#: extension.js:227
+#: extension.js:244
 msgid "No history yet"
 msgstr "ยังไม่มีประวัติ"
 
-#: extension.js:239
+#: extension.js:256
 msgid "Settings"
 msgstr "การตั้งค่า"
 
-#: extension.js:255
+#: extension.js:272
 #, fuzzy
 msgid "Text copied"
 msgstr "ข้อความที่แยกออกมา"
 
-#: extension.js:476
+#: extension.js:498
 msgid "Snap Text"
 msgstr "สแน็ปข้อความ"
 
-#: extension.js:476
+#: extension.js:498
 #, fuzzy
 msgid "No text found."
 msgstr "ไม่พบข้อความในส่วนที่เลือก"
 
-#: extension.js:492
+#: extension.js:514
 #, fuzzy
 msgid "Text extracted"
 msgstr "ข้อความที่แยกออกมา"
@@ -91,45 +96,57 @@ msgid "Keep a history of up to 15 recent extractions in the context menu."
 msgstr "เก็บประวัติการแยกข้อมูลล่าสุดได้สูงสุด 15 รายการในเมนูบริบท"
 
 #: prefs.js:87
-msgid "Keyboard Shortcut Trigger"
+#, fuzzy
+msgid "Enable Keyboard Shortcut"
 msgstr "ทริกเกอร์แป้นพิมพ์ลัด"
 
 #: prefs.js:88
+msgid "Allow triggering extraction via a keyboard shortcut."
+msgstr ""
+
+#: prefs.js:102
+msgid "Keyboard Shortcut Trigger"
+msgstr "ทริกเกอร์แป้นพิมพ์ลัด"
+
+#: prefs.js:103
 msgid "Click to set shortcut. Press Esc to cancel, Backspace to disable."
 msgstr "คลิกเพื่อตั้งค่าทางลัด กด Esc เพื่อยกเลิก กด Backspace เพื่อปิดใช้งาน"
 
-#: prefs.js:94 prefs.js:137
+#: prefs.js:111 prefs.js:165
 msgid "Disabled"
 msgstr "พิการ"
 
-#: prefs.js:114
+#: prefs.js:142
 msgid "Press keys..."
 msgstr "กดปุ่ม..."
 
-#: prefs.js:159
-msgid "Developer Details"
-msgstr "รายละเอียดผู้พัฒนา"
-
-#: prefs.js:161
-msgid "Author"
-msgstr "ผู้เขียน"
-
-#: prefs.js:162
-msgid "Version"
-msgstr "เวอร์ชัน"
-
-#. github and donate:
-#: prefs.js:177
+#. GitHub repo links :
+#: prefs.js:201
+#, fuzzy
 msgid "Buy me a coffee ☕"
 msgstr "ซื้อกาแฟให้ฉันหน่อย ☕"
 
-#: prefs.js:178
+#: prefs.js:202
+#, fuzzy
 msgid "Report a Bug 🐛"
 msgstr "รายงานข้อผิดพลาด 🐛"
 
-#: prefs.js:179
-msgid "Request a Feature 🚀"
+#: prefs.js:203
+#, fuzzy
+msgid "Request a Feature 💡"
 msgstr "ขอคุณสมบัติ 🚀"
+
+#: prefs.js:209
+msgid "Developer Details"
+msgstr "รายละเอียดผู้พัฒนา"
+
+#: prefs.js:211
+msgid "Author"
+msgstr "ผู้เขียน"
+
+#: prefs.js:212
+msgid "Version"
+msgstr "เวอร์ชัน"
 
 #~ msgid "Text Copied from History"
 #~ msgstr "ข้อความที่คัดลอกมาจากประวัติศาสตร์"

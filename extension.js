@@ -15,6 +15,11 @@ const HISTORY_LIMIT = 15; //todo: add option in a later version with a slider to
 const HISTORY_LABEL_LIMIT = 40;
 const COPY_ICON_RESET_MS = 2000;
 
+function notifyError(msg) {
+    console.error(`[SnapText] ${msg}`);
+    Main.notify(_('Snap Text Error'), msg);
+}
+
 function isProbablyCancelled(error) {
     let message = String(error).toLowerCase();
     return message.includes('cancelled') || message.includes('canceled');
@@ -71,8 +76,7 @@ const DependencyErrorDialog = GObject.registerClass( //fancy dialog to show how 
             super._init();
 
             this._copyIconTimeoutId = 0;
-            this.connect('destroy', () => this._clearCopyIconTimeout());
-            this.connect('closed', () => this.destroy());
+            this._closedSignalId = this.connect('closed', () => this.destroy());
 
             let box = new St.BoxLayout({
                 vertical: true,
@@ -150,6 +154,15 @@ const DependencyErrorDialog = GObject.registerClass( //fancy dialog to show how 
             GLib.source_remove(this._copyIconTimeoutId);
             this._copyIconTimeoutId = 0;
         }
+
+        destroy() {
+            this._clearCopyIconTimeout();
+            if (this._closedSignalId) {
+                this.disconnect(this._closedSignalId);
+                this._closedSignalId = 0;
+            }
+            super.destroy();
+        }
     }
 );
 
@@ -157,6 +170,10 @@ export default class SnapTextExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
         this._settingsChangedId = 0;
+        this._indicatorPressId = 0;
+        this._indicatorReleaseId = 0;
+        this._errorDialogDestroyId = 0;
+        
         this._activeProcesses = new Set();
         this._errorDialog = null;
         this._cancellable = new Gio.Cancellable();
@@ -167,7 +184,7 @@ export default class SnapTextExtension extends Extension {
             style_class: 'system-status-icon',
         }));
 
-        this._indicator.connect('button-press-event', (_actor, event) => {
+        this._indicatorPressId = this._indicator.connect('button-press-event', (_actor, event) => {
             if (event.get_button() !== 1) {
                 return Clutter.EVENT_PROPAGATE;
             }
@@ -178,14 +195,14 @@ export default class SnapTextExtension extends Extension {
 
             this._extractTextAsync().catch(error => {
                 if (!this._isCancelled()) {
-                    console.error(`Text extraction failed: ${error}`);
+                    notifyError(`Text extraction failed: ${error}`);
                 }
             });
 
             return Clutter.EVENT_STOP;
         });
 
-        this._indicator.connect('button-release-event', (_actor, event) => {
+        this._indicatorReleaseId = this._indicator.connect('button-release-event', (_actor, event) => {
             if (event.get_button() !== 3) {
                 return Clutter.EVENT_PROPAGATE;
             }
@@ -269,7 +286,7 @@ export default class SnapTextExtension extends Extension {
             () => {
                 this._extractTextAsync().catch(error => {
                     if (!this._isCancelled()) {
-                        console.error(`Text extraction failed: ${error}`);
+                        notifyError(`Text extraction failed: ${error}`);
                     }
                 });
             }
@@ -279,13 +296,18 @@ export default class SnapTextExtension extends Extension {
     // User may not know how to installs the deps, added a dialog explaining how to install (more userfriendly that way). 
     _showMissingDependency(appName) {
         if (this._errorDialog) {
+            if (this._errorDialogDestroyId) {
+                this._errorDialog.disconnect(this._errorDialogDestroyId);
+                this._errorDialogDestroyId = 0;
+            }
             this._errorDialog.destroy();
             this._errorDialog = null;
         }
 
         this._errorDialog = new DependencyErrorDialog(appName, installCommandFor(appName));
-        this._errorDialog.connect('destroy', () => {
+        this._errorDialogDestroyId = this._errorDialog.connect('destroy', () => {
             this._errorDialog = null;
+            this._errorDialogDestroyId = 0;
         });
         this._errorDialog.open();
     }
@@ -300,7 +322,7 @@ export default class SnapTextExtension extends Extension {
                 process.force_exit();
             } catch (error) {
                 if (!isProbablyCancelled(error)) {
-                    console.warn(`Could not stop process: ${error}`);
+                    notifyError(`Could not stop process: ${error}`);
                 }
             }
         }
@@ -316,7 +338,7 @@ export default class SnapTextExtension extends Extension {
                     resolve(proc.get_successful());
                 } catch (error) {
                     if (!this._isCancelled() && !isProbablyCancelled(error)) {
-                        console.warn(`Process wait failed: ${error}`);
+                        notifyError(`Process wait failed: ${error}`);
                     }
                     resolve(false);
                 }
@@ -332,7 +354,7 @@ export default class SnapTextExtension extends Extension {
                     resolve({ ok: proc.get_successful(), stdout });
                 } catch (error) {
                     if (!this._isCancelled() && !isProbablyCancelled(error)) {
-                        console.warn(`Process output read failed: ${error}`);
+                        notifyError(`Process output read failed: ${error}`);
                     }
                     resolve({ ok: false, stdout: '' });
                 }
@@ -360,7 +382,7 @@ export default class SnapTextExtension extends Extension {
             stream.close(null);
             stream = null;
         } catch (error) {
-            console.error(`Could not create temporary screenshot file: ${error}`);
+            notifyError(`Could not create temporary screenshot file: ${error}`);
             return;
         }
 
@@ -379,14 +401,14 @@ export default class SnapTextExtension extends Extension {
             }
         } catch (error) {
             if (!this._isCancelled()) {
-                console.error(`Screenshot failed: ${error}`);
+                notifyError(`Screenshot failed: ${error}`);
             }
         } finally {
             if (stream) {
                 try {
                     stream.close(null);
                 } catch (error) {
-                    console.warn(`Could not close temporary screenshot file: ${error}`);
+                    notifyError(`Could not close temporary screenshot file: ${error}`);
                 }
             }
 
@@ -394,7 +416,7 @@ export default class SnapTextExtension extends Extension {
                 try {
                     GLib.unlink(imagePath);
                 } catch (error) {
-                    console.warn(`Could not remove temporary screenshot file: ${error}`);
+                    notifyError(`Could not remove temporary screenshot file: ${error}`);
                 }
             }
         }
@@ -462,7 +484,7 @@ export default class SnapTextExtension extends Extension {
             return langs.length > 0 ? langs.join('+') : fallback;
         } catch (error) {
             if (!this._isCancelled()) {
-                console.warn(`Could not read Tesseract languages: ${error}`);
+                notifyError(`Could not read Tesseract languages: ${error}`);
             }
             return fallback;
         }
@@ -509,11 +531,23 @@ export default class SnapTextExtension extends Extension {
         this._stopActiveProcesses();
 
         if (this._errorDialog) {
+            if (this._errorDialogDestroyId) {
+                this._errorDialog.disconnect(this._errorDialogDestroyId);
+                this._errorDialogDestroyId = 0;
+            }
             this._errorDialog.destroy();
             this._errorDialog = null;
         }
 
         if (this._indicator) {
+            if (this._indicatorPressId) {
+                this._indicator.disconnect(this._indicatorPressId);
+                this._indicatorPressId = 0;
+            }
+            if (this._indicatorReleaseId) {
+                this._indicator.disconnect(this._indicatorReleaseId);
+                this._indicatorReleaseId = 0;
+            }
             this._indicator.destroy();
             this._indicator = null;
         }
