@@ -3,6 +3,7 @@ import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 import * as ModalDialog from 'resource:///org/gnome/shell/ui/modalDialog.js';
+import * as MessageTray from 'resource:///org/gnome/shell/ui/messageTray.js';
 import St from 'gi://St';
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
@@ -76,7 +77,7 @@ const DependencyErrorDialog = GObject.registerClass( //fancy dialog to show how 
             super._init();
 
             this._copyIconTimeoutId = 0;
-            this._closedSignalId = this.connect('closed', () => this.destroy());
+            this.connectObject('closed', () => this.destroy(), this);
 
             let box = new St.BoxLayout({
                 vertical: true,
@@ -123,7 +124,7 @@ const DependencyErrorDialog = GObject.registerClass( //fancy dialog to show how 
             });
             copyButton.set_child(copyIcon);
 
-            copyButton.connect('clicked', () => {
+            copyButton.connectObject('clicked', () => {
                 St.Clipboard.get_default().set_text(St.ClipboardType.CLIPBOARD, installCmd);
                 copyIcon.icon_name = 'object-select-symbolic';
 
@@ -133,7 +134,7 @@ const DependencyErrorDialog = GObject.registerClass( //fancy dialog to show how 
                     copyIcon.icon_name = 'edit-copy-symbolic';
                     return GLib.SOURCE_REMOVE;
                 });
-            });
+            }, this);
 
             commandBox.add_child(copyButton);
             box.add_child(commandBox);
@@ -157,10 +158,7 @@ const DependencyErrorDialog = GObject.registerClass( //fancy dialog to show how 
 
         destroy() {
             this._clearCopyIconTimeout();
-            if (this._closedSignalId) {
-                this.disconnect(this._closedSignalId);
-                this._closedSignalId = 0;
-            }
+            this.disconnectObject(this);
             super.destroy();
         }
     }
@@ -169,51 +167,50 @@ const DependencyErrorDialog = GObject.registerClass( //fancy dialog to show how 
 export default class SnapTextExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
-        this._settingsChangedId = 0;
-        this._indicatorPressId = 0;
-        this._indicatorReleaseId = 0;
-        this._errorDialogDestroyId = 0;
         
         this._activeProcesses = new Set();
         this._errorDialog = null;
+        this._notifSource = null;
         this._cancellable = new Gio.Cancellable();
 
         this._indicator = new PanelMenu.Button(0.0, this.metadata.name, false);
         this._indicator.add_child(new St.Icon({
-            icon_name: 'edit-select-text-symbolic',
+            gicon: Gio.FileIcon.new(this.dir.get_child('trayicon.svg')),
             style_class: 'system-status-icon',
         }));
 
-        this._indicatorPressId = this._indicator.connect('button-press-event', (_actor, event) => {
-            if (event.get_button() !== 1) {
-                return Clutter.EVENT_PROPAGATE;
-            }
-
-            if (this._indicator.menu.isOpen) {
-                this._indicator.menu.close();
-            }
-
-            this._extractTextAsync().catch(error => {
-                if (!this._isCancelled()) {
-                    notifyError(`Text extraction failed: ${error}`);
+        this._indicator.connectObject(
+            'button-press-event', (_actor, event) => {
+                if (event.get_button() !== 1) {
+                    return Clutter.EVENT_PROPAGATE;
                 }
-            });
 
-            return Clutter.EVENT_STOP;
-        });
+                if (this._indicator.menu.isOpen) {
+                    this._indicator.menu.close();
+                }
 
-        this._indicatorReleaseId = this._indicator.connect('button-release-event', (_actor, event) => {
-            if (event.get_button() !== 3) {
-                return Clutter.EVENT_PROPAGATE;
-            }
+                this._extractTextAsync().catch(error => {
+                    if (!this._isCancelled()) {
+                        notifyError(`Text extraction failed: ${error}`);
+                    }
+                });
 
-            this._buildMenu();
-            this._indicator.menu.toggle();
-            return Clutter.EVENT_STOP;
-        });
+                return Clutter.EVENT_STOP;
+            },
+            'button-release-event', (_actor, event) => {
+                if (event.get_button() !== 3) {
+                    return Clutter.EVENT_PROPAGATE;
+                }
+
+                this._buildMenu();
+                this._indicator.menu.toggle();
+                return Clutter.EVENT_STOP;
+            },
+            this
+        );
 
         this._buildMenu();
-        this._settingsChangedId = this._settings.connect('changed', this._onSettingsChanged.bind(this));
+        this._settings.connectObject('changed', this._onSettingsChanged.bind(this), this);
 
         Main.panel.addToStatusArea(this.uuid, this._indicator);
         this._bindShortcut();
@@ -254,7 +251,7 @@ export default class SnapTextExtension extends Extension {
         }
 
         let settingsItem = new PopupMenu.PopupImageMenuItem(_('Settings'), 'preferences-system-symbolic');
-        settingsItem.connect('activate', () => this.openPreferences());
+        settingsItem.connectObject('activate', () => this.openPreferences(), this);
         this._indicator.menu.addMenuItem(settingsItem);
     }
 
@@ -265,13 +262,13 @@ export default class SnapTextExtension extends Extension {
         }
 
         let item = new PopupMenu.PopupMenuItem(label);
-        item.connect('activate', () => {
+        item.connectObject('activate', () => {
             St.Clipboard.get_default().set_text(St.ClipboardType.CLIPBOARD, text);
 
             if (this._settings?.get_boolean('show-notification')) {
-                Main.notify(_('Text copied'), text);
+                this._showNotification(_('Text copied'), text);
             }
-        });
+        }, this);
 
         return item;
     }
@@ -296,20 +293,65 @@ export default class SnapTextExtension extends Extension {
     // User may not know how to installs the deps, added a dialog explaining how to install (more userfriendly that way). 
     _showMissingDependency(appName) {
         if (this._errorDialog) {
-            if (this._errorDialogDestroyId) {
-                this._errorDialog.disconnect(this._errorDialogDestroyId);
-                this._errorDialogDestroyId = 0;
-            }
+            this._errorDialog.disconnectObject(this);
             this._errorDialog.destroy();
             this._errorDialog = null;
         }
 
         this._errorDialog = new DependencyErrorDialog(appName, installCommandFor(appName));
-        this._errorDialogDestroyId = this._errorDialog.connect('destroy', () => {
+        this._errorDialog.connectObject('destroy', () => {
             this._errorDialog = null;
-            this._errorDialogDestroyId = 0;
-        });
+        }, this);
         this._errorDialog.open();
+    }
+
+    //load the icon
+    _notificationIcon() {
+        return Gio.FileIcon.new(this.dir.get_child('trayicon.svg'));
+    }
+
+    _getNotificationSource() {
+        if (!this._notifSource) {
+            this._notifSource = new MessageTray.Source({
+                title: 'SnapText',
+                icon: this._notificationIcon(),
+            });
+            this._notifSource.connectObject('destroy', () => {
+                this._notifSource = null;
+            }, this);
+            Main.messageTray.add(this._notifSource);
+        }
+
+        return this._notifSource;
+    }
+
+    _showNotification(title, body) {
+        try {
+            let titleText = String(title ?? '').trim();
+            let bodyText = String(body ?? '').trim();
+
+            if (!titleText && !bodyText) {
+                return;
+            }
+
+            let source = this._getNotificationSource();
+            let notification = new MessageTray.Notification({
+                source,
+                title: titleText,
+                body: bodyText,
+                urgency: MessageTray.Urgency.NORMAL,
+            });
+
+            source.addNotification(notification);
+        } catch (error) {
+            console.error(`[SnapText] Notification failed: ${error}`);
+
+            try {
+                Main.notify(String(title ?? '').trim(), String(body ?? '').trim());
+            } catch (fallbackError) {
+                console.error(`[SnapText] Fallback notification failed: ${fallbackError}`);
+            }
+        }
     }
 
     _isCancelled() {
@@ -401,7 +443,7 @@ export default class SnapTextExtension extends Extension {
             }
         } catch (error) {
             if (!this._isCancelled()) {
-                notifyError(`Screenshot failed: ${error}`);
+                notifyError(`Text extraction failed: ${error}`);
             }
         } finally {
             if (stream) {
@@ -495,7 +537,7 @@ export default class SnapTextExtension extends Extension {
     _handleExtractedText(text) {
         if (!text) {
             if (this._settings?.get_boolean('show-notification')) {
-                Main.notify(_('Snap Text'), _('No text found.'));
+                this._showNotification(_('Snap Text'), _('No text found.'));
             }
             return;
         }
@@ -511,7 +553,7 @@ export default class SnapTextExtension extends Extension {
         }
 
         if (this._settings?.get_boolean('show-notification')) {
-            Main.notify(_('Text extracted'), text);
+            this._showNotification(_('Text extracted'), text);
         }
     }
 
@@ -523,33 +565,28 @@ export default class SnapTextExtension extends Extension {
 
         Main.wm.removeKeybinding('shortcut-trigger');
 
-        if (this._settingsChangedId) {
-            this._settings.disconnect(this._settingsChangedId);
-            this._settingsChangedId = 0;
+        if (this._settings) {
+            this._settings.disconnectObject(this);
         }
 
         this._stopActiveProcesses();
 
         if (this._errorDialog) {
-            if (this._errorDialogDestroyId) {
-                this._errorDialog.disconnect(this._errorDialogDestroyId);
-                this._errorDialogDestroyId = 0;
-            }
+            this._errorDialog.disconnectObject(this);
             this._errorDialog.destroy();
             this._errorDialog = null;
         }
 
         if (this._indicator) {
-            if (this._indicatorPressId) {
-                this._indicator.disconnect(this._indicatorPressId);
-                this._indicatorPressId = 0;
-            }
-            if (this._indicatorReleaseId) {
-                this._indicator.disconnect(this._indicatorReleaseId);
-                this._indicatorReleaseId = 0;
-            }
+            this._indicator.disconnectObject(this);
             this._indicator.destroy();
             this._indicator = null;
+        }
+
+        if (this._notifSource) {
+            this._notifSource.disconnectObject(this);
+            this._notifSource.destroy();
+            this._notifSource = null;
         }
 
         this._settings = null;

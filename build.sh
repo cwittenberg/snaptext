@@ -64,6 +64,10 @@ if [ -f stylesheet.css ]; then
     cp stylesheet.css "$BUILD_DIR/"
 fi
 
+if [ -f trayicon.svg ]; then
+    cp trayicon.svg "$BUILD_DIR/"
+fi
+
 echo "Packaging extension..."
 if command -v gnome-extensions &> /dev/null; then
     gnome-extensions pack "$BUILD_DIR" \
@@ -71,6 +75,7 @@ if command -v gnome-extensions &> /dev/null; then
         --extra-source=prefs.js \
         --extra-source=schemas \
         --extra-source=locale \
+        --extra-source=trayicon.svg \
         --force
 
     mv "$UUID.shell-extension.zip" "$PACKAGE_PATH"
@@ -125,6 +130,10 @@ cp -r "$BUILD_DIR/schemas" "$EXTENSION_DIR/"
 
 if [ -f "$BUILD_DIR/stylesheet.css" ]; then
     cp "$BUILD_DIR/stylesheet.css" "$EXTENSION_DIR/"
+fi
+
+if [ -f "$BUILD_DIR/trayicon.svg" ]; then
+    cp "$BUILD_DIR/trayicon.svg" "$EXTENSION_DIR/"
 fi
 
 if find "$BUILD_DIR/locale" -type f -name '*.mo' | grep -q .; then
