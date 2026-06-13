@@ -204,14 +204,19 @@ export default class SnapTextPreferences extends ExtensionPreferences {
         linkBox.append(createLinkButton(_('Request a Feature 💡'), 'https://github.com/cwittenberg/snaptext/issues/new?template=feature_request.md'));
         
         groupLinks.add(linkBox);
+        
+        const tipLabel = new Gtk.Label({
+            label: _('💡 Tip: Right-click the system tray icon for quick access and history.'),
+            justify: Gtk.Justification.CENTER,
+            wrap: true,
+            margin_top: 8,
+            margin_bottom: 16,
+            css_classes: ['dim-label']
+        });
+        groupLinks.add(tipLabel);
+        
         pageGeneral.add(groupLinks);
    
-        const groupAbout = new Adw.PreferencesGroup({
-            title: _('Developer Details')
-        });
-        groupAbout.add(new Adw.ActionRow({ title: _('Author'), subtitle: 'Christian Wittenberg', title_lines: 0, subtitle_lines: 0 }));
-        groupAbout.add(new Adw.ActionRow({ title: _('Version'), subtitle: '1.0.0 (Production Release)', title_lines: 0, subtitle_lines: 0 }));
-        pageGeneral.add(groupAbout);
         
         window.add(pageGeneral);
 
@@ -347,6 +352,14 @@ export default class SnapTextPreferences extends ExtensionPreferences {
         debugRow.add_suffix(toggleDebug);
         debugRow.activatable_widget = toggleDebug;
         groupAdvancedSettings.add(debugRow);
+
+        const groupAbout = new Adw.PreferencesGroup();
+        groupAbout.add(new Adw.ActionRow({ title: _('Author'), subtitle: 'Christian Wittenberg', title_lines: 0, subtitle_lines: 0 }));
+        
+        const extVersion = this.metadata.version !== undefined ? this.metadata.version.toString() : 'Local / EGO (Auto-injected)';
+        groupAbout.add(new Adw.ActionRow({ title: _('Version'), subtitle: extVersion, title_lines: 0, subtitle_lines: 0 }));
+        
+        groupAdvancedSettings.add(groupAbout);
         
         pageAdvanced.add(groupAdvancedSettings);
         

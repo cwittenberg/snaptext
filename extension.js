@@ -10,11 +10,10 @@ import Clutter from 'gi://Clutter';
 import Meta from 'gi://Meta';
 import Shell from 'gi://Shell';
 import Soup from 'gi://Soup';
-
 import { OcrProcessor } from './ocr.js';
 import { checkDependencies, getCombinedInstallCommand, DependencyErrorDialog } from './dependencies.js';
 
-const HISTORY_LIMIT = 15; //todo: add option in a later version with a slider to configure this.
+const HISTORY_LIMIT = 15;
 const HISTORY_LABEL_LIMIT = 40;
 
 export default class SnapTextExtension extends Extension {
@@ -25,6 +24,8 @@ export default class SnapTextExtension extends Extension {
         this._errorDialog = null;
         this._notifSource = null;
         this._cancellable = new Gio.Cancellable();
+        
+        this._translateToggle = null;
 
         this._indicator = new PanelMenu.Button(0.0, this.metadata.name, false);
         this._indicator.add_child(new St.Icon({
@@ -37,20 +38,24 @@ export default class SnapTextExtension extends Extension {
                 if (event.get_button() !== 1) {
                     return Clutter.EVENT_PROPAGATE;
                 }
+
                 if (this._indicator.menu.isOpen) {
                     this._indicator.menu.close();
                 }
+
                 this._extractTextAsync().catch(error => {
                     if (!this._isCancelled()) {
                         this._notifyError(`Text extraction failed: ${error}`);
                     }
                 });
+
                 return Clutter.EVENT_STOP;
             },
             'button-release-event', (_actor, event) => {
                 if (event.get_button() !== 3) {
                     return Clutter.EVENT_PROPAGATE;
                 }
+
                 this._buildMenu();
                 this._indicator.menu.toggle();
                 return Clutter.EVENT_STOP;
@@ -61,7 +66,6 @@ export default class SnapTextExtension extends Extension {
         this._buildMenu();
 
         this._settings.connectObject('changed', this._onSettingsChanged.bind(this), this);
-
         Main.panel.addToStatusArea(this.uuid, this._indicator);
         this._bindShortcut();
     }
@@ -86,8 +90,18 @@ export default class SnapTextExtension extends Extension {
             this._bindShortcut();
             return;
         }
+
         if (key === 'keep-history' || key === 'history-list') {
-            this._buildMenu();
+            if (this._indicator && this._indicator.menu.isOpen) {
+                this._buildMenu();
+            }
+            return;
+        }
+
+        if (key === 'translate-text') {
+            if (this._translateToggle) {
+                this._translateToggle.setToggleState(this._settings.get_boolean('translate-text'));
+            }
         }
     }
 
@@ -112,83 +126,28 @@ export default class SnapTextExtension extends Extension {
                     this._indicator.menu.addMenuItem(this._historyMenuItem(text));
                 }
             }
+
             this._indicator.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
         }
 
+        let isTranslating = this._settings.get_boolean('translate-text');
+        this._translateToggle = new PopupMenu.PopupSwitchMenuItem(_('Auto-Translate Text'), isTranslating);
+        this._translateToggle.connectObject('toggled', (item, state) => {
+            this._settings.set_boolean('translate-text', state);
+        }, this);
+        this._indicator.menu.addMenuItem(this._translateToggle);
+
         if (keepHistory) {
-            // Implement a split-row layout so Settings and Clear behave as two distinct highlighted buttons
-            let bottomRow = new PopupMenu.PopupBaseMenuItem({
-                activate: false,
-                can_focus: false
-            });
-            // We omit `reactive: false` so the item doesn't get set to insensitive/greyed out
-            bottomRow.remove_style_class_name('popup-menu-item');
-
-            let settingsButton = new St.Button({
-                style_class: 'popup-menu-item',
-                x_expand: true,
-                y_expand: true,
-                x_align: Clutter.ActorAlign.FILL,
-                y_align: Clutter.ActorAlign.FILL,
-                track_hover: true,
-                reactive: true,
-                can_focus: true,
-                child: new St.BoxLayout({
-                    x_expand: true,
-                    x_align: Clutter.ActorAlign.START,
-                    y_align: Clutter.ActorAlign.CENTER
-                })
-            });
-            settingsButton.child.set_style('spacing: 12px;');
-
-            let settingsIcon = new St.Icon({
-                icon_name: 'preferences-system-symbolic',
-                style_class: 'popup-menu-icon',
-                y_align: Clutter.ActorAlign.CENTER
-            });
-            let settingsLabel = new St.Label({
-                text: _('Settings'),
-                y_align: Clutter.ActorAlign.CENTER
-            });
-            
-            settingsButton.child.add_child(settingsIcon);
-            settingsButton.child.add_child(settingsLabel);
-
-            settingsButton.connectObject('clicked', () => {
-                this._indicator.menu.close();
-                this.openPreferences();
-            }, this);
-
-            bottomRow.add_child(settingsButton);
-
-            let clearButton = new St.Button({
-                style_class: 'popup-menu-item',
-                x_expand: false,
-                y_expand: true,
-                x_align: Clutter.ActorAlign.FILL,
-                y_align: Clutter.ActorAlign.FILL,
-                track_hover: true,
-                reactive: true,
-                can_focus: true,
-                child: new St.Icon({
-                    icon_name: 'user-trash-symbolic',
-                    style_class: 'popup-menu-icon',
-                    y_align: Clutter.ActorAlign.CENTER
-                })
-            });
-
-            clearButton.connectObject('clicked', () => {
+            let clearItem = new PopupMenu.PopupImageMenuItem(_('Clear History'), 'user-trash-symbolic');
+            clearItem.connectObject('activate', () => {
                 this._settings.set_strv('history-list', []);
             }, this);
-
-            bottomRow.add_child(clearButton);
-
-            this._indicator.menu.addMenuItem(bottomRow);
-        } else {
-            let settingsItem = new PopupMenu.PopupImageMenuItem(_('Settings'), 'preferences-system-symbolic');
-            settingsItem.connectObject('activate', () => this.openPreferences(), this);
-            this._indicator.menu.addMenuItem(settingsItem);
+            this._indicator.menu.addMenuItem(clearItem);
         }
+
+        let settingsItem = new PopupMenu.PopupImageMenuItem(_('Settings'), 'preferences-system-symbolic');
+        settingsItem.connectObject('activate', () => this.openPreferences(), this);
+        this._indicator.menu.addMenuItem(settingsItem);
     }
 
     _historyMenuItem(text) {
@@ -209,7 +168,7 @@ export default class SnapTextExtension extends Extension {
     }
 
     _bindShortcut() {
-        Main.wm.removeKeybinding('shortcut-trigger');   
+        Main.wm.removeKeybinding('shortcut-trigger');
         
         Main.wm.addKeybinding(
             'shortcut-trigger',
@@ -239,6 +198,7 @@ export default class SnapTextExtension extends Extension {
         this._errorDialog.connectObject('destroy', () => {
             this._errorDialog = null;
         }, this);
+
         this._errorDialog.open();
     }
 
@@ -323,6 +283,7 @@ export default class SnapTextExtension extends Extension {
         }
 
         let targetLang = this._settings.get_string('translate-target').trim();
+
         if (!targetLang) {
             let sysLangs = GLib.get_language_names();
             let locale = sysLangs[0] || 'en';
@@ -403,8 +364,8 @@ export default class SnapTextExtension extends Extension {
                 ['gnome-screenshot', '-a', '-f', imagePath],
                 Gio.SubprocessFlags.NONE
             );
-            this._activeProcesses.add(screenshot);
 
+            this._activeProcesses.add(screenshot);
             let gotScreenshot = await this._waitForProcess(screenshot);
             this._activeProcesses.delete(screenshot);
 
@@ -431,13 +392,13 @@ export default class SnapTextExtension extends Extension {
                     }
 
                     this._handleExtractedText(text);
-
                 } else {
                     this._logDebug('OCR process returned null or empty text.');
                 }
             } else if (!this._isCancelled()) {
                 this._logDebug('gnome-screenshot exited without taking a screenshot. It was either cancelled or failed to grab the display.', true);
             }
+
         } catch (error) {
             if (!this._isCancelled()) {
                 this._notifyError(`Text extraction failed: ${error}`);
@@ -501,6 +462,11 @@ export default class SnapTextExtension extends Extension {
             this._errorDialog.disconnectObject(this);
             this._errorDialog.destroy();
             this._errorDialog = null;
+        }
+
+        if (this._translateToggle) {
+            this._translateToggle.destroy();
+            this._translateToggle = null;
         }
 
         if (this._indicator) {
