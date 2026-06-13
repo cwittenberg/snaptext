@@ -26,5 +26,25 @@
       <summary>Trigger shortcut</summary>
       <description>Keyboard shortcut to trigger snap text extraction.</description>
     </key>
+    <key name="translate-text" type="b">
+      <default>false</default>
+      <summary>Translate text</summary>
+      <description>Automatically translate extracted text using Google Translate.</description>
+    </key>
+    <key name="translate-target" type="s">
+      <default>''</default>
+      <summary>Target language</summary>
+      <description>Target language code for translation (empty for system default).</description>
+    </key>
+    <key name="qr-auto-open" type="b">
+      <default>true</default>
+      <summary>Auto-open QR URLs</summary>
+      <description>Automatically launch HTTP/HTTPS URLs detected via QR code.</description>
+    </key>
+    <key name="enable-debug" type="b">
+      <default>false</default>
+      <summary>Enable debug logging</summary>
+      <description>Outputs detailed debug information to the system journal.</description>
+    </key>
   </schema>
 </schemalist>

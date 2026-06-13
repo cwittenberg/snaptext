@@ -2,7 +2,6 @@ import { Extension, gettext as _ } from 'resource:///org/gnome/shell/extensions/
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
-import * as ModalDialog from 'resource:///org/gnome/shell/ui/modalDialog.js';
 import * as MessageTray from 'resource:///org/gnome/shell/ui/messageTray.js';
 import St from 'gi://St';
 import Gio from 'gi://Gio';
@@ -10,159 +9,13 @@ import GLib from 'gi://GLib';
 import Clutter from 'gi://Clutter';
 import Meta from 'gi://Meta';
 import Shell from 'gi://Shell';
-import GObject from 'gi://GObject';
+import Soup from 'gi://Soup';
+
+import { OcrProcessor } from './ocr.js';
+import { checkDependencies, getCombinedInstallCommand, DependencyErrorDialog } from './dependencies.js';
 
 const HISTORY_LIMIT = 15; //todo: add option in a later version with a slider to configure this.
 const HISTORY_LABEL_LIMIT = 40;
-const COPY_ICON_RESET_MS = 2000;
-
-function notifyError(msg) {
-    console.error(`[SnapText] ${msg}`);
-    Main.notify(_('Snap Text Error'), msg);
-}
-
-function isProbablyCancelled(error) {
-    let message = String(error).toLowerCase();
-    return message.includes('cancelled') || message.includes('canceled');
-}
-
-//used to show to the user how to install the Tesseract deps, if unavailable. 
-function installCommandFor(appName) {
-    const distroId = (GLib.get_os_info('ID') || '').toLowerCase();
-    const distroLike = (GLib.get_os_info('ID_LIKE') || '').toLowerCase().split(/\s+/);
-
-    const isFedoraLike = distroId === 'fedora' || distroLike.includes('fedora');
-    const isArchLike = distroId === 'arch' || distroLike.includes('arch');
-    const isDebianLike =
-        distroId === 'debian' ||
-        distroId === 'ubuntu' ||
-        distroId === 'pop' ||
-        distroLike.includes('debian') ||
-        distroLike.includes('ubuntu');
-
-    if (appName === 'tesseract') {
-        if (isFedoraLike) {
-            return 'sudo dnf install tesseract tesseract-langpack-eng';
-        }
-
-        if (isArchLike) {
-            return 'sudo pacman -S tesseract tesseract-data-eng';
-        }
-
-        if (isDebianLike) {
-            return 'sudo apt update && sudo apt install tesseract-ocr tesseract-ocr-eng';
-        }
-
-        return '# Install Tesseract OCR and the English language data using your distribution package manager.';
-    }
-
-    if (isFedoraLike) {
-        return 'sudo dnf install gnome-screenshot';
-    }
-
-    if (isArchLike) {
-        return 'sudo pacman -S gnome-screenshot';
-    }
-
-    if (isDebianLike) {
-        return 'sudo apt update && sudo apt install gnome-screenshot';
-    }
-
-    return '# Install gnome-screenshot using your distribution package manager.';
-}
-
-const DependencyErrorDialog = GObject.registerClass( //fancy dialog to show how to install tesseract.
-    class DependencyErrorDialog extends ModalDialog.ModalDialog {
-        _init(appName, installCmd) {
-            super._init();
-
-            this._copyIconTimeoutId = 0;
-            this.connectObject('closed', () => this.destroy(), this);
-
-            let box = new St.BoxLayout({
-                vertical: true,
-                style: 'padding: 24px; spacing: 18px; width: 480px;',
-            });
-
-            let title = new St.Label({
-                text: _('Missing dependency: %s').replace('%s', appName),
-                style: 'font-size: 14pt; font-weight: bold; color: #ff5555;',
-            });
-            box.add_child(title);
-
-            let description = new St.Label({
-                text: appName === 'tesseract'
-                    ? _('Install Tesseract and at least one language package.')
-                    : _('Install gnome-screenshot and try again.'),
-            });
-            description.clutter_text.line_wrap = true;
-            box.add_child(description);
-
-            let commandBox = new St.BoxLayout({
-                vertical: false,
-                style: 'spacing: 12px; background-color: rgba(255,255,255,0.08); padding: 12px; border-radius: 8px;',
-            });
-
-            let commandLabel = new St.Label({
-                text: installCmd,
-                style: 'font-family: monospace; font-weight: bold;',
-                y_align: Clutter.ActorAlign.CENTER,
-                x_expand: true,
-            });
-            commandLabel.clutter_text.line_wrap = true;
-            commandBox.add_child(commandLabel);
-
-            let copyButton = new St.Button({
-                style_class: 'button',
-                y_align: Clutter.ActorAlign.CENTER,
-                style: 'padding: 8px; border-radius: 6px;',
-            });
-
-            let copyIcon = new St.Icon({
-                icon_name: 'edit-copy-symbolic',
-                icon_size: 16,
-            });
-            copyButton.set_child(copyIcon);
-
-            copyButton.connectObject('clicked', () => {
-                St.Clipboard.get_default().set_text(St.ClipboardType.CLIPBOARD, installCmd);
-                copyIcon.icon_name = 'object-select-symbolic';
-
-                this._clearCopyIconTimeout();
-                this._copyIconTimeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, COPY_ICON_RESET_MS, () => {
-                    this._copyIconTimeoutId = 0;
-                    copyIcon.icon_name = 'edit-copy-symbolic';
-                    return GLib.SOURCE_REMOVE;
-                });
-            }, this);
-
-            commandBox.add_child(copyButton);
-            box.add_child(commandBox);
-            this.contentLayout.add_child(box);
-
-            this.setButtons([{
-                label: _('Dismiss'),
-                action: () => this.close(),
-                key: Clutter.KEY_Escape,
-            }]);
-        }
-
-        _clearCopyIconTimeout() {
-            if (!this._copyIconTimeoutId) {
-                return;
-            }
-
-            GLib.source_remove(this._copyIconTimeoutId);
-            this._copyIconTimeoutId = 0;
-        }
-
-        destroy() {
-            this._clearCopyIconTimeout();
-            this.disconnectObject(this);
-            super.destroy();
-        }
-    }
-);
 
 export default class SnapTextExtension extends Extension {
     enable() {
@@ -184,24 +37,20 @@ export default class SnapTextExtension extends Extension {
                 if (event.get_button() !== 1) {
                     return Clutter.EVENT_PROPAGATE;
                 }
-
                 if (this._indicator.menu.isOpen) {
                     this._indicator.menu.close();
                 }
-
                 this._extractTextAsync().catch(error => {
                     if (!this._isCancelled()) {
-                        notifyError(`Text extraction failed: ${error}`);
+                        this._notifyError(`Text extraction failed: ${error}`);
                     }
                 });
-
                 return Clutter.EVENT_STOP;
             },
             'button-release-event', (_actor, event) => {
                 if (event.get_button() !== 3) {
                     return Clutter.EVENT_PROPAGATE;
                 }
-
                 this._buildMenu();
                 this._indicator.menu.toggle();
                 return Clutter.EVENT_STOP;
@@ -210,10 +59,26 @@ export default class SnapTextExtension extends Extension {
         );
 
         this._buildMenu();
+
         this._settings.connectObject('changed', this._onSettingsChanged.bind(this), this);
 
         Main.panel.addToStatusArea(this.uuid, this._indicator);
         this._bindShortcut();
+    }
+
+    _logDebug(msg, isError = false) {
+        if (this._settings && this._settings.get_boolean('enable-debug')) {
+            if (isError) {
+                console.error(`[SnapText Debug] ${msg}`);
+            } else {
+                console.log(`[SnapText Debug] ${msg}`);
+            }
+        }
+    }
+
+    _notifyError(msg) {
+        this._logDebug(`Error: ${msg}`, true);
+        Main.notify(_('Snap Text Error'), msg);
     }
 
     _onSettingsChanged(_settings, key) {
@@ -221,7 +86,6 @@ export default class SnapTextExtension extends Extension {
             this._bindShortcut();
             return;
         }
-
         if (key === 'keep-history' || key === 'history-list') {
             this._buildMenu();
         }
@@ -234,7 +98,9 @@ export default class SnapTextExtension extends Extension {
 
         this._indicator.menu.removeAll();
 
-        if (this._settings.get_boolean('keep-history')) {
+        let keepHistory = this._settings.get_boolean('keep-history');
+
+        if (keepHistory) {
             let history = this._settings.get_strv('history-list');
 
             if (history.length === 0) {
@@ -246,12 +112,37 @@ export default class SnapTextExtension extends Extension {
                     this._indicator.menu.addMenuItem(this._historyMenuItem(text));
                 }
             }
-
             this._indicator.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
         }
 
         let settingsItem = new PopupMenu.PopupImageMenuItem(_('Settings'), 'preferences-system-symbolic');
         settingsItem.connectObject('activate', () => this.openPreferences(), this);
+
+        // Only add the clear history inline button if tracking history is enabled
+        if (keepHistory) {
+            // Expand the label to push appended children (our clear icon) to the far right
+            settingsItem.label.x_expand = true;
+
+            let clearIcon = new St.Icon({
+                icon_name: 'user-trash-symbolic',
+                style_class: 'popup-menu-icon',
+                reactive: true,
+                y_align: Clutter.ActorAlign.CENTER
+            });
+
+            // Stop propagation so clicking the trash doesn't activate the Settings item
+            clearIcon.connectObject(
+                'button-press-event', () => Clutter.EVENT_STOP,
+                'button-release-event', () => {
+                    this._settings.set_strv('history-list', []);
+                    return Clutter.EVENT_STOP;
+                },
+                this
+            );
+
+            settingsItem.add_child(clearIcon);
+        }
+
         this._indicator.menu.addMenuItem(settingsItem);
     }
 
@@ -264,7 +155,6 @@ export default class SnapTextExtension extends Extension {
         let item = new PopupMenu.PopupMenuItem(label);
         item.connectObject('activate', () => {
             St.Clipboard.get_default().set_text(St.ClipboardType.CLIPBOARD, text);
-
             if (this._settings?.get_boolean('show-notification')) {
                 this._showNotification(_('Text copied'), text);
             }
@@ -275,30 +165,33 @@ export default class SnapTextExtension extends Extension {
 
     _bindShortcut() {   //besides the icon, super easy to  use a hotkey also.
         Main.wm.removeKeybinding('shortcut-trigger');   
+        
         Main.wm.addKeybinding(
             'shortcut-trigger',
             this._settings,
             Meta.KeyBindingFlags.NONE,
             Shell.ActionMode.NORMAL | Shell.ActionMode.OVERVIEW,
             () => {
+                this._logDebug('Shortcut triggered.');
                 this._extractTextAsync().catch(error => {
                     if (!this._isCancelled()) {
-                        notifyError(`Text extraction failed: ${error}`);
+                        this._notifyError(`Text extraction failed: ${error}`);
                     }
                 });
             }
         );
     }
 
-    // User may not know how to installs the deps, added a dialog explaining how to install (more userfriendly that way). 
-    _showMissingDependency(appName) {
+    // Opens the combined dependencies dialog. 
+    _showMissingDependencies(missingApps) {
         if (this._errorDialog) {
             this._errorDialog.disconnectObject(this);
             this._errorDialog.destroy();
             this._errorDialog = null;
         }
 
-        this._errorDialog = new DependencyErrorDialog(appName, installCommandFor(appName));
+        const installCmd = getCombinedInstallCommand(missingApps);
+        this._errorDialog = new DependencyErrorDialog(missingApps, installCmd);
         this._errorDialog.connectObject('destroy', () => {
             this._errorDialog = null;
         }, this);
@@ -316,12 +209,13 @@ export default class SnapTextExtension extends Extension {
                 title: 'SnapText',
                 icon: this._notificationIcon(),
             });
+
             this._notifSource.connectObject('destroy', () => {
                 this._notifSource = null;
             }, this);
+
             Main.messageTray.add(this._notifSource);
         }
-
         return this._notifSource;
     }
 
@@ -344,12 +238,11 @@ export default class SnapTextExtension extends Extension {
 
             source.addNotification(notification);
         } catch (error) {
-            console.error(`[SnapText] Notification failed: ${error}`);
-
+            this._logDebug(`Notification failed: ${error}`, true);
             try {
                 Main.notify(String(title ?? '').trim(), String(body ?? '').trim());
             } catch (fallbackError) {
-                console.error(`[SnapText] Fallback notification failed: ${fallbackError}`);
+                this._logDebug(`Fallback notification failed: ${fallbackError}`, true);
             }
         }
     }
@@ -360,15 +253,8 @@ export default class SnapTextExtension extends Extension {
 
     _stopActiveProcesses() {
         for (let process of this._activeProcesses) {
-            try {
-                process.force_exit();
-            } catch (error) {
-                if (!isProbablyCancelled(error)) {
-                    notifyError(`Could not stop process: ${error}`);
-                }
-            }
+            process.force_exit();
         }
-
         this._activeProcesses.clear();
     }
 
@@ -379,8 +265,8 @@ export default class SnapTextExtension extends Extension {
                     proc.wait_finish(result);
                     resolve(proc.get_successful());
                 } catch (error) {
-                    if (!this._isCancelled() && !isProbablyCancelled(error)) {
-                        notifyError(`Process wait failed: ${error}`);
+                    if (!this._isCancelled()) {
+                        this._notifyError(`Process wait failed: ${error}`);
                     }
                     resolve(false);
                 }
@@ -388,29 +274,75 @@ export default class SnapTextExtension extends Extension {
         });
     }
 
-    async _readProcess(process) {
-        return new Promise(resolve => {
-            process.communicate_utf8_async(null, this._cancellable, (proc, result) => {
-                try {
-                    let [, stdout] = proc.communicate_utf8_finish(result);
-                    resolve({ ok: proc.get_successful(), stdout });
-                } catch (error) {
-                    if (!this._isCancelled() && !isProbablyCancelled(error)) {
-                        notifyError(`Process output read failed: ${error}`);
+    /**
+     * Translates text via Google Translate API if enabled in preferences.
+     */
+    async _translateText(text) {
+        if (!this._settings.get_boolean('translate-text') || !text) {
+            return text;
+        }
+
+        let targetLang = this._settings.get_string('translate-target').trim();
+        if (!targetLang) {
+            // Default to GNOME sys lang if the user left the input blank
+            let sysLangs = GLib.get_language_names();
+            let locale = sysLangs[0] || 'en';
+            targetLang = locale.split('.')[0].split('_')[0]; // Format e.g., en_US.UTF-8 -> en
+        }
+
+        this._logDebug(`Translating text to: ${targetLang}`);
+
+        //todo, add other services besidse Google translate.
+        let url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+
+        try {
+            let session = new Soup.Session();
+            let message = Soup.Message.new('GET', url);
+            
+            let bytes = await new Promise((resolve, reject) => {
+                session.send_and_read_async(message, GLib.PRIORITY_DEFAULT, this._cancellable, (sess, res) => {
+                    try {
+                        resolve(sess.send_and_read_finish(res));
+                    } catch (e) {
+                        reject(e);
                     }
-                    resolve({ ok: false, stdout: '' });
-                }
+                });
             });
-        });
+
+            if (message.get_status() === Soup.Status.OK) {
+                let decoder = new TextDecoder('utf-8');
+                let responseText = decoder.decode(bytes.get_data());
+                let json = JSON.parse(responseText);
+                
+                let translated = "";
+                for (let block of json[0]) {
+                    if (block[0]) {
+                        translated += block[0];
+                    }
+                }
+                return translated;
+            }
+        } catch (error) {
+            if (!this._isCancelled()) {
+                this._logDebug(`Translation failed: ${error}`, true);
+                this._showNotification(_('Translation Error'), _('Could not connect to Google Translate.'));
+            }
+        }
+
+        return text; // Fallback to original text on any failure
     }
 
     //utilizes gnome-screenshot to grab the selected area. Saved to a tmp file and then used for OCR with tesseract.
     //simple but super effective.
     async _extractTextAsync() {
+        this._logDebug('Starting extraction flow...');
+
         this._stopActiveProcesses();
 
-        if (!GLib.find_program_in_path('gnome-screenshot')) {
-            this._showMissingDependency('gnome-screenshot');
+        let missingDeps = checkDependencies();
+        if (missingDeps.length > 0) {
+            this._logDebug(`Missing dependencies found: ${missingDeps.join(', ')}`);
+            this._showMissingDependencies(missingDeps);
             return;
         }
 
@@ -423,112 +355,73 @@ export default class SnapTextExtension extends Extension {
             imagePath = file.get_path();
             stream.close(null);
             stream = null;
+            this._logDebug(`Temporary image path created: ${imagePath}`);
         } catch (error) {
-            notifyError(`Could not create temporary screenshot file: ${error}`);
+            this._notifyError(`Could not create temporary screenshot file: ${error}`);
             return;
         }
 
         try {
+            this._logDebug('Spawning gnome-screenshot...');
             let screenshot = Gio.Subprocess.new(
                 ['gnome-screenshot', '-a', '-f', imagePath],
                 Gio.SubprocessFlags.NONE
             );
-
             this._activeProcesses.add(screenshot);
+
             let gotScreenshot = await this._waitForProcess(screenshot);
             this._activeProcesses.delete(screenshot);
 
+            this._logDebug(`gnome-screenshot completed. Success: ${gotScreenshot}`);
+
             if (gotScreenshot && !this._isCancelled()) {
-                await this._runTesseractAsync(imagePath);
+                const ocrProcessor = new OcrProcessor(this._cancellable, this._activeProcesses, (msg) => this._notifyError(msg), this._logDebug.bind(this));
+                let result = await ocrProcessor.processImage(imagePath);
+                
+                if (!this._isCancelled() && result !== null && result.text) {
+                    let text = result.text;
+                    this._logDebug(`Final OCR text length: ${text.length}`);
+                    
+                    // Automatically launch HTTP/HTTPS URLs (that got noticed via QR )
+                    if (result.isQr && /^https?:\/\/[^\s]+$/i.test(text.trim())) {
+                        if (this._settings.get_boolean('qr-auto-open')) {
+                            try {
+                                Gio.AppInfo.launch_default_for_uri(text.trim(), null);
+                            } catch (e) {
+                                this._logDebug(`Could not launch URI: ${e}`, true);
+                            }
+                        }
+                    } else if (text.trim().length > 0 && this._settings.get_boolean('translate-text')) {
+                        text = await this._translateText(text);
+                    }
+
+                    this._handleExtractedText(text);
+
+                } else {
+                    this._logDebug('OCR process returned null or empty text.');
+                }
+            } else if (!this._isCancelled()) {
+                this._logDebug('gnome-screenshot exited without taking a screenshot. It was either cancelled or failed to grab the display.', true);
             }
         } catch (error) {
             if (!this._isCancelled()) {
-                notifyError(`Text extraction failed: ${error}`);
+                this._notifyError(`Text extraction failed: ${error}`);
             }
         } finally {
             if (stream) {
                 try {
                     stream.close(null);
                 } catch (error) {
-                    notifyError(`Could not close temporary screenshot file: ${error}`);
+                    this._logDebug(`Could not close temporary screenshot file: ${error}`, true);
                 }
             }
-
             if (imagePath && GLib.file_test(imagePath, GLib.FileTest.EXISTS)) {
                 try {
                     GLib.unlink(imagePath);
                 } catch (error) {
-                    notifyError(`Could not remove temporary screenshot file: ${error}`);
+                    this._logDebug(`Could not remove temporary screenshot file: ${error}`, true);
                 }
             }
-        }
-    }
-
-    async _runTesseractAsync(imagePath) {
-        if (!GLib.find_program_in_path('tesseract')) {
-            this._showMissingDependency('tesseract');
-            return;
-        }
-
-        let languages = await this._availableTesseractLanguages();
-        if (this._isCancelled()) {
-            return;
-        }
-
-        let ocr = Gio.Subprocess.new(
-            ['tesseract', imagePath, 'stdout', '-l', languages],
-            Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_SILENCE
-        );
-
-        this._activeProcesses.add(ocr);
-        let result = await this._readProcess(ocr);
-        this._activeProcesses.delete(ocr);
-
-        if (!result.ok || this._isCancelled()) {
-            return;
-        }
-
-        this._handleExtractedText(result.stdout?.trim() ?? '');
-    }
-
-
-    //Simply query all available languages - for maximum hit rate/accuracy
-    //Alternative would be to let user configure in settings - but I think this is cleaner.
-    //Tesserat unfortunately does not have a simple way to get it out - so thats why output parsing of subprocess call is needed.
-    async _availableTesseractLanguages() {
-        let fallback = 'eng';
-
-        try {
-            let listLangs = Gio.Subprocess.new(
-                ['tesseract', '--list-langs'],
-                Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_SILENCE
-            );
-
-            this._activeProcesses.add(listLangs);
-            let result = await this._readProcess(listLangs);
-            this._activeProcesses.delete(listLangs);
-
-            if (!result.ok || !result.stdout) {
-                return fallback;
-            }
-
-            let langs = [];
-            let lines = result.stdout.split('\n').map(line => line.trim());
-            let headerIndex = lines.findIndex(line => line.startsWith('List of'));
-
-            for (let i = headerIndex + 1; i > 0 && i < lines.length; i++) {
-                let lang = lines[i];
-                if (lang && lang !== 'osd' && /^[a-zA-Z0-9_]+$/.test(lang)) {
-                    langs.push(lang);
-                }
-            }
-
-            return langs.length > 0 ? langs.join('+') : fallback;
-        } catch (error) {
-            if (!this._isCancelled()) {
-                notifyError(`Could not read Tesseract languages: ${error}`);
-            }
-            return fallback;
         }
     }
 

@@ -19,7 +19,7 @@ mkdir -p "$BUILD_DIR/locale"
 mkdir -p "po"
 
 echo "Validating extension files..."
-for file in metadata.json extension.js prefs.js schemas/org.gnome.shell.extensions.snaptext.gschema.xml; do
+for file in metadata.json extension.js prefs.js dependencies.js schemas/org.gnome.shell.extensions.snaptext.gschema.xml; do
     if [ ! -f "$file" ]; then
         echo "Error: $file not found in the current directory. Please make sure all files exist."
         exit 1
@@ -31,7 +31,7 @@ glib-compile-schemas --strict schemas/
 
 echo "Extracting strings and generating translation template..."
 if command -v xgettext &> /dev/null; then
-    xgettext --from-code=UTF-8 --language=JavaScript --keyword=_ --add-comments -o po/snaptext.pot extension.js prefs.js
+    xgettext --from-code=UTF-8 --language=JavaScript --keyword=_ --add-comments -o po/snaptext.pot extension.js prefs.js dependencies.js
     echo "Translation template generated at po/snaptext.pot"
 else
     echo "Warning: xgettext not found, skipping string extraction."
@@ -57,8 +57,11 @@ for po_file in po/*.po; do
 done
 
 echo "Copying files to build directory..."
-cp metadata.json extension.js prefs.js "$BUILD_DIR/"
+cp metadata.json extension.js prefs.js ocr.js dependencies.js "$BUILD_DIR/"
 cp -r schemas "$BUILD_DIR/"
+
+# Remove the compiled schema from the build payload to pass EGO-P-006 validation
+rm -f "$BUILD_DIR/schemas/gschemas.compiled"
 
 if [ -f stylesheet.css ]; then
     cp stylesheet.css "$BUILD_DIR/"
@@ -73,6 +76,8 @@ if command -v gnome-extensions &> /dev/null; then
     gnome-extensions pack "$BUILD_DIR" \
         --extra-source=extension.js \
         --extra-source=prefs.js \
+        --extra-source=ocr.js \
+        --extra-source=dependencies.js \
         --extra-source=schemas \
         --extra-source=locale \
         --extra-source=trayicon.svg \
@@ -126,6 +131,8 @@ mkdir -p "$EXTENSION_DIR"
 cp "$BUILD_DIR/metadata.json" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/extension.js" "$EXTENSION_DIR/"
 cp "$BUILD_DIR/prefs.js" "$EXTENSION_DIR/"
+cp "$BUILD_DIR/ocr.js" "$EXTENSION_DIR/"
+cp "$BUILD_DIR/dependencies.js" "$EXTENSION_DIR/"
 cp -r "$BUILD_DIR/schemas" "$EXTENSION_DIR/"
 
 if [ -f "$BUILD_DIR/stylesheet.css" ]; then
@@ -139,6 +146,9 @@ fi
 if find "$BUILD_DIR/locale" -type f -name '*.mo' | grep -q .; then
     cp -r "$BUILD_DIR/locale" "$EXTENSION_DIR/"
 fi
+
+echo "Compiling schemas for local installation..."
+glib-compile-schemas "$EXTENSION_DIR/schemas/"
 
 echo "Upload package created at: $PACKAGE_PATH"
 

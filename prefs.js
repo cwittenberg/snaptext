@@ -23,7 +23,7 @@ function createLinkButton(title, uri, styleClass = null) {
     }
     
     button.connect('clicked', () => {
-        Gio.app_info_launch_default_for_uri(uri, null);
+        Gio.AppInfo.launch_default_for_uri(uri, null);
     });
     
     return button;
@@ -32,8 +32,10 @@ function createLinkButton(title, uri, styleClass = null) {
 export default class SnapTextPreferences extends ExtensionPreferences {
     fillPreferencesWindow(window) {
         const settings = this.getSettings();
-        const page = new Adw.PreferencesPage({
-            title: _('Snap Text Configuration'),
+        
+        // --- GENERAL TAB ---
+        const pageGeneral = new Adw.PreferencesPage({
+            title: _('General'),
             icon_name: 'preferences-system-symbolic'
         });
         
@@ -47,7 +49,7 @@ export default class SnapTextPreferences extends ExtensionPreferences {
             css_classes: ['dim-label']
         });
         groupHeader.add(descLabel);
-        page.add(groupHeader);
+        pageGeneral.add(groupHeader);
         
         const groupSettings = new Adw.PreferencesGroup({
             title: _('Behavior & Shortcuts')
@@ -183,9 +185,8 @@ export default class SnapTextPreferences extends ExtensionPreferences {
         shortcutRow.activatable_widget = shortcutButton;
         groupSettings.add(shortcutRow);
 
-        page.add(groupSettings);
-        
-        // Group Links (Buttons) moved above Developer Details
+        pageGeneral.add(groupSettings);
+
         const groupLinks = new Adw.PreferencesGroup();
         
         const linkBox = new Gtk.Box({
@@ -203,15 +204,152 @@ export default class SnapTextPreferences extends ExtensionPreferences {
         linkBox.append(createLinkButton(_('Request a Feature 💡'), 'https://github.com/cwittenberg/snaptext/issues/new?template=feature_request.md'));
         
         groupLinks.add(linkBox);
-        page.add(groupLinks);
+        pageGeneral.add(groupLinks);
    
         const groupAbout = new Adw.PreferencesGroup({
             title: _('Developer Details')
         });
         groupAbout.add(new Adw.ActionRow({ title: _('Author'), subtitle: 'Christian Wittenberg', title_lines: 0, subtitle_lines: 0 }));
         groupAbout.add(new Adw.ActionRow({ title: _('Version'), subtitle: '1.0.0 (Production Release)', title_lines: 0, subtitle_lines: 0 }));
-        page.add(groupAbout);
+        pageGeneral.add(groupAbout);
         
-        window.add(page);
+        window.add(pageGeneral);
+
+        // --- ADVANCED TAB ---
+        const pageAdvanced = new Adw.PreferencesPage({
+            title: _('Advanced'),
+            icon_name: 'preferences-other-symbolic'
+        });
+
+        const groupQr = new Adw.PreferencesGroup({
+            title: _('QR Codes')
+        });
+
+        const qrRow = new Adw.ActionRow({
+            title: _('Auto-Open URLs'),
+            subtitle: _('Automatically open HTTP/HTTPS links detected in QR codes.'),
+            title_lines: 0,
+            subtitle_lines: 0
+        });
+        const toggleQr = new Gtk.Switch({
+            active: settings.get_boolean('qr-auto-open'),
+            valign: Gtk.Align.CENTER,
+        });
+        settings.bind('qr-auto-open', toggleQr, 'active', Gio.SettingsBindFlags.DEFAULT);
+        qrRow.add_suffix(toggleQr);
+        qrRow.activatable_widget = toggleQr;
+        groupQr.add(qrRow);
+        
+        pageAdvanced.add(groupQr);
+
+        const groupTranslation = new Adw.PreferencesGroup({
+            title: _('Translation (Online / Labs 🧪)')
+        });
+
+        // Privacy warning callout
+        const warningBox = new Gtk.Box({
+            orientation: Gtk.Orientation.HORIZONTAL,
+            spacing: 12,
+            visible: settings.get_boolean('translate-text'),
+            margin_top: 4,
+            margin_bottom: 12,
+            css_classes: ['card'],
+        });
+
+        const warningIcon = new Gtk.Image({
+            icon_name: 'dialog-warning-symbolic',
+            pixel_size: 22,
+            valign: Gtk.Align.START,
+            margin_top: 14,
+            margin_start: 14,
+        });
+
+        const warningTextBox = new Gtk.Box({
+            orientation: Gtk.Orientation.VERTICAL,
+            spacing: 4,
+            hexpand: true,
+            margin_top: 12,
+            margin_bottom: 12,
+            margin_end: 14,
+        });
+
+        const warningTitle = new Gtk.Label({
+            label: _('Privacy warning'),
+            xalign: 0,
+            hexpand: true,
+            css_classes: ['heading'],
+        });
+
+        const warningLabel = new Gtk.Label({
+            label: _('Auto-Translate sends extracted text to Google. Privacy cannot be guaranteed when enabled.'),
+            wrap: true,
+            xalign: 0,
+            hexpand: true,
+            css_classes: ['dim-label'],
+        });
+
+        warningTextBox.append(warningTitle);
+        warningTextBox.append(warningLabel);
+
+        warningBox.append(warningIcon);
+        warningBox.append(warningTextBox);
+        settings.bind('translate-text', warningBox, 'visible', Gio.SettingsBindFlags.GET);
+        groupTranslation.add(warningBox);
+
+        const translateRow = new Adw.ActionRow({
+            title: _('Auto-Translate Text'),
+            subtitle: _('Automatically translate extracted text to your target language.'),
+            title_lines: 0,
+            subtitle_lines: 0
+        });
+        const toggleTranslate = new Gtk.Switch({
+            active: settings.get_boolean('translate-text'),
+            valign: Gtk.Align.CENTER,
+        });
+        settings.bind('translate-text', toggleTranslate, 'active', Gio.SettingsBindFlags.DEFAULT);
+        translateRow.add_suffix(toggleTranslate);
+        translateRow.activatable_widget = toggleTranslate;
+        groupTranslation.add(translateRow);
+
+        const langActionRow = new Adw.ActionRow({
+            title: _('Target Language Code'),
+            subtitle: _('e.g., en, fr, es, zh. Leave empty to use your system default language.'),
+            title_lines: 0,
+            subtitle_lines: 0
+        });
+        const langEntry = new Gtk.Entry({
+            text: settings.get_string('translate-target'),
+            valign: Gtk.Align.CENTER,
+            width_chars: 6
+        });
+        settings.bind('translate-target', langEntry, 'text', Gio.SettingsBindFlags.DEFAULT);
+        settings.bind('translate-text', langActionRow, 'sensitive', Gio.SettingsBindFlags.GET);
+        langActionRow.add_suffix(langEntry);
+        groupTranslation.add(langActionRow);
+
+        pageAdvanced.add(groupTranslation);
+
+        const groupAdvancedSettings = new Adw.PreferencesGroup({
+            title: _('Logging')
+        });
+
+        const debugRow = new Adw.ActionRow({
+            title: _('Enable Debug Logging'),
+            subtitle: _('Outputs detailed OCR and process logs to the system journal.'),
+            title_lines: 0,
+            subtitle_lines: 0
+        });
+        const toggleDebug = new Gtk.Switch({
+            active: settings.get_boolean('enable-debug'),
+            valign: Gtk.Align.CENTER,
+        });
+        settings.bind('enable-debug', toggleDebug, 'active', Gio.SettingsBindFlags.DEFAULT);
+        debugRow.add_suffix(toggleDebug);
+        debugRow.activatable_widget = toggleDebug;
+        groupAdvancedSettings.add(debugRow);
+        
+        pageAdvanced.add(groupAdvancedSettings);
+        
+        window.add(pageAdvanced);
     }
 }

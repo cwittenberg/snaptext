@@ -20,7 +20,7 @@ mkdir -p "$PODIR"
 echo "Extracting translation strings into $PODIR/$DOMAIN.pot..."
 xgettext --from-code=UTF-8 --language=JavaScript --keyword=_ \
     --output="$PODIR/$DOMAIN.pot" \
-    extension.js prefs.js
+    extension.js prefs.js dependencies.js
 
 echo "Generating or updating PO files for 50 languages..."
 for lang in "${LANGS[@]}"; do
