@@ -7,7 +7,7 @@ import GObject from 'gi://GObject';
 
 const COPY_ICON_RESET_MS = 2000;
 
-export function checkDependencies() {
+function checkDependencies() {
     let missing = [];
 
     if (!GLib.find_program_in_path('gnome-screenshot')) {
@@ -29,7 +29,7 @@ export function checkDependencies() {
     return missing;
 }
 
-export function getCombinedInstallCommand(missingApps) {
+function getCombinedInstallCommand(missingApps) {
     const distroId = (GLib.get_os_info('ID') || '').toLowerCase();
     const distroLike = (GLib.get_os_info('ID_LIKE') || '').toLowerCase().split(/\s+/);
 
@@ -80,7 +80,7 @@ export function getCombinedInstallCommand(missingApps) {
     return '# Install the missing dependencies using your distribution package manager:\n# ' + missingApps.join(', ');
 }
 
-export const DependencyErrorDialog = GObject.registerClass(
+const DependencyErrorDialog = GObject.registerClass(
     class DependencyErrorDialog extends ModalDialog.ModalDialog {
         _init(missingApps, installCmd) {
             super._init();
@@ -222,3 +222,12 @@ export const DependencyErrorDialog = GObject.registerClass(
         }
     }
 );
+
+export function getMissingAppsErrorDialog() {
+    let missingApps = checkDependencies();
+    if (missingApps.length === 0) {
+        return null;
+    }
+    const installCmd = getCombinedInstallCommand(missingApps);
+    return new DependencyErrorDialog(missingApps, installCmd);
+}

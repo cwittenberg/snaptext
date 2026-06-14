@@ -13,7 +13,7 @@ import Shell from 'gi://Shell';
 import Soup from 'gi://Soup';
 
 import { OcrProcessor } from './ocr.js';
-import { checkDependencies, getCombinedInstallCommand, DependencyErrorDialog } from './dependencies.js';
+import { getMissingAppsErrorDialog } from './dependencies.js';
 
 const HISTORY_LIMIT = 15;
 const HISTORY_LABEL_LIMIT = 40;
@@ -29,6 +29,7 @@ export default class SnapTextExtension extends Extension {
         this._extractTimeoutId = null;
         this._translateToggle = null;
         this._historySection = null;
+        this._soupSession = new Soup.Session();
         
         // Use a standard PanelMenu.Button
         this._indicator = new PanelMenu.Button(0.0, this.metadata.name, false);
@@ -273,16 +274,14 @@ export default class SnapTextExtension extends Extension {
         );
     }
 
-    _showMissingDependencies(missingApps) {
+    _showMissingDependencies(dialog) {
         if (this._errorDialog) {
             this._errorDialog.disconnectObject(this);
             this._errorDialog.destroy();
             this._errorDialog = null;
         }
 
-        const installCmd = getCombinedInstallCommand(missingApps);
-
-        this._errorDialog = new DependencyErrorDialog(missingApps, installCmd);
+        this._errorDialog = dialog;
         this._errorDialog.connectObject('destroy', () => {
             this._errorDialog = null;
         }, this);
@@ -357,7 +356,7 @@ export default class SnapTextExtension extends Extension {
     }
 
     async _translateText(text, cancellable = this._cancellable) {
-        if (!this._settings.get_boolean('translate-text') || !text) {
+        if (!this._settings.get_boolean('translate-text') || !text || !this._soupSession) {
             return text;
         }
 
@@ -374,11 +373,10 @@ export default class SnapTextExtension extends Extension {
         let url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
 
         try {
-            let session = new Soup.Session();
             let message = Soup.Message.new('GET', url);
             
             let bytes = await new Promise((resolve, reject) => {
-                session.send_and_read_async(message, GLib.PRIORITY_DEFAULT, cancellable, (sess, res) => {
+                this._soupSession.send_and_read_async(message, GLib.PRIORITY_DEFAULT, cancellable, (sess, res) => {
                     try {
                         resolve(sess.send_and_read_finish(res));
                     } catch (e) {
@@ -424,10 +422,10 @@ export default class SnapTextExtension extends Extension {
 
         this._stopActiveProcesses();
 
-        let missingDeps = checkDependencies();
-        if (missingDeps.length > 0) {
-            this._logDebug(`Missing dependencies found: ${missingDeps.join(', ')}`);
-            this._showMissingDependencies(missingDeps);
+        let errorDialog = getMissingAppsErrorDialog();
+        if (errorDialog) {
+            this._logDebug(`Missing dependencies found.`);
+            this._showMissingDependencies(errorDialog);
             return;
         }
 
@@ -536,6 +534,11 @@ export default class SnapTextExtension extends Extension {
     }
 
     disable() {
+        if (this._soupSession) {
+            this._soupSession.abort();
+            this._soupSession = null;
+        }
+
         if (this._extractTimeoutId) {
             GLib.source_remove(this._extractTimeoutId);
             this._extractTimeoutId = null;
