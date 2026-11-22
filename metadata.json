@@ -3,7 +3,13 @@
   "description": "Grab text from anywhere on your screen with Snap Text, just like the popular MacOS feature. Select any area, and it instantly extracts detected text with OCR and copies it to your clipboard. Works with images, screenshots, dialogs, documents, apps, and other places where normal text selection is not available. Can also instantly auto-translate. It aims to be the perfect tool for capturing unselectable text from images, documents, videos, and system dialogs.",
   "uuid": "snaptext@cwittenberg",
   "shell-version": [
-    "45", "46", "47", "48", "49", "50"
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50",
+    "51"
   ],
   "url": "https://github.com/cwittenberg/snaptext",
   "settings-schema": "org.gnome.shell.extensions.snaptext",
